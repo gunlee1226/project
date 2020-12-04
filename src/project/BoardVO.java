@@ -17,10 +17,10 @@ public class BoardVO {
 
    public BoardVO() {}
    
-   public BoardVO(String input_title, String input_contents) {
-	   super();
-	   this.b_contents = input_contents;
-	   this.b_title = input_title;
+   public BoardVO (String b_title, String b_contents) {
+	   this.b_title = b_title;
+	   this.b_contents = b_contents;
+
    }
 
    public BoardVO(int b_no, String b_title, String b_date, int b_view, int b_commview, String MEM_NAME) {
@@ -33,6 +33,8 @@ public class BoardVO {
       this.MEM_NAME = MEM_NAME;
     
    }
+   
+  
 
 
    public String getMEM_NAME() {

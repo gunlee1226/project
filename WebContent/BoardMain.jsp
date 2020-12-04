@@ -8,8 +8,8 @@
 
 <%
    request.setCharacterEncoding("UTF-8");
-BoardDAO dao = new BoardDAO();
-List<BoardVO> list = dao.getList();
+	BoardDAO dao = new BoardDAO();
+	List<BoardVO> list = dao.getList();
 %>
 
 
@@ -94,7 +94,7 @@ List<BoardVO> list = dao.getList();
 						<tr>
 							<td><%=vo.getB_no() %> </td>
 							<td><%=vo.getMEM_NAME() %></td>
-							<td><%=vo.getB_title() %></td>
+							<td><%=vo.getB_title() %> </td>
 							<td><%=vo.getB_date() %></td>
 							<td><%=vo.getB_view() %></td>
 							<td><%=vo.getB_commview() %></td>
@@ -103,7 +103,6 @@ List<BoardVO> list = dao.getList();
 	<%      
       }					
    %>
-
 					</tbody>
 
 				</table>
@@ -114,7 +113,7 @@ List<BoardVO> list = dao.getList();
 
 		<div class="row">
 			<div class="col-md-12" style="text-align: right;">
-				<form action="InsertBoard.jsp" method="POST">
+				<form action="InsertForm.jsp" method="POST">
 					<input type="submit" name="binsert" value="글쓰기">
 				</form>
 			</div>

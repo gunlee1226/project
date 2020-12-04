@@ -12,7 +12,7 @@ import sun.awt.CharsetString;
 
 public class BoardDAO {
 
-   public int insert(BoardVO vo, String input_title, String input_contents) {
+   public int insert(BoardVO vo) {
       Connection conn = null;
       PreparedStatement pstmt = null;
       int count = 0 ;
@@ -20,14 +20,17 @@ public class BoardDAO {
       try {
          Class.forName("oracle.jdbc.driver.OracleDriver");
 
-         String url = "jdbc:oracle:thin:@localhost:1521:xe";
+         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
          conn = DriverManager.getConnection(url, "gunlee", "0000");
 
          String query ="INSERT INTO board values(board_no_SEQ.nextval,?, sysdate,?,1, 1, 2 )";
          pstmt = conn.prepareStatement(query);   
 
-         pstmt.setString(1, input_title);
-         pstmt.setString(2, input_contents);
+         pstmt.setString(1, vo.getB_title());
+         System.out.print(vo.getB_title());
+         
+         
+         pstmt.setString(2, vo.getB_contents());
        
          count = pstmt.executeUpdate();
 
@@ -97,7 +100,7 @@ public class BoardDAO {
          Class.forName("oracle.jdbc.driver.OracleDriver");
 
          // 2. Connection 얻어오기
-         String url = "jdbc:oracle:thin:@localhost:1521:xe";
+         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
          conn = DriverManager.getConnection(url, "gunlee", "0000");
 
          // 3. SQL문 준비 / 바인딩 / 실행
