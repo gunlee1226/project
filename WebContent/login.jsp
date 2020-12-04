@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="project.MemberDAO"%>
-<%@ page import="project.MemberVO"%>
-<%MemberDAO dao = new MemberDAO();%>
+<%@ page import="project.MemberDAO_so"%>
+<%@ page import="project.MemberVO_so"%>
+<%MemberDAO_so dao = new MemberDAO_so();%>
 
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -11,7 +11,14 @@
 	String input_mem_pwd = request.getParameter("input_mem_pwd");
 	boolean login = dao.login(input_mem_id, input_mem_pwd);
 	
-	if(login == true) response.sendRedirect("Main.jsp");
-	else response.sendRedirect("loginform.jsp");
+	if(login == true){ 
+		session.setAttribute("loginUser", input_mem_id); //세션에 저장
+		response.sendRedirect("Main.jsp");
+	}
+	else %>
+	<script>alert("비밀번호가 다릅니다.");
+	location.href = "loginform.jsp"
+	</script>
+	<%
 		
 %>
