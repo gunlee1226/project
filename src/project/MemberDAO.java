@@ -24,10 +24,10 @@ public class MemberDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "gunlee", "0000");
 
-			String query = "insert into d_membervalues (seq_D_MEMBER.nextval, ?, ?, ?, ?)";
+			String query = "insert into d_member (Mem_code,Mem_name,Mem_id,Mem_pwd,Mem_num) values (seq_D_MEMBER_mem_code.nextval, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(query);
 
 			pstmt.setString(1, vo.getMem_name());
@@ -66,7 +66,7 @@ public class MemberDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
-			conn = DriverManager.getConnection(url, "hr", "hr");
+			conn = DriverManager.getConnection(url, "gunlee", "0000");
 			
 			
 			String query = "select mem_pwd from d_member where mem_id=?";

@@ -62,7 +62,7 @@
 		</div>
 	</nav>
 	<!-- 로고 부분  (헤더) -->
-	<a class="nav-link" href="main.html">
+	<a class="nav-link" href="Main.jsp">
 		<h1 class="head">오늘 뭐 먹지 ?</h1>
 	</a>
 

@@ -20,7 +20,7 @@ public class BoardDAO {
       try {
          Class.forName("oracle.jdbc.driver.OracleDriver");
 
-         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+         String url = "jdbc:oracle:thin:@localhost:1521:xe";
          conn = DriverManager.getConnection(url, "gunlee", "0000");
 
          String query ="INSERT INTO board values(board_no_SEQ.nextval,?, sysdate,?,1, 1, 2 )";
@@ -100,7 +100,7 @@ public class BoardDAO {
          Class.forName("oracle.jdbc.driver.OracleDriver");
 
          // 2. Connection 얻어오기
-         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+         String url = "jdbc:oracle:thin:@localhost:1521:xe";
          conn = DriverManager.getConnection(url, "gunlee", "0000");
 
          // 3. SQL문 준비 / 바인딩 / 실행

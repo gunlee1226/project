@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="project.MemberDAO_so"%>
-<%MemberDAO_so dao = new MemberDAO_so();%>
+<%@ page import="project.MemberDAO"%>
+<%MemberDAO dao = new MemberDAO();%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +15,6 @@
 		<input type="submit" value="로그인 하기">
 	</form>
 	<br>
-	<form action="signupform.jsp" method="post" value="회원가입">
-	</form>
+
 </body>
 </html>
