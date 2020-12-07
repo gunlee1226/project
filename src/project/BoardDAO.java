@@ -21,9 +21,9 @@ public class BoardDAO {
          Class.forName("oracle.jdbc.driver.OracleDriver");
 
          String url = "jdbc:oracle:thin:@localhost:1521:xe";
-         conn = DriverManager.getConnection(url, "gunlee", "0000");
+         conn = DriverManager.getConnection(url, "desr", "desr");
 
-         String query ="INSERT INTO board values(board_no_SEQ.nextval,?, sysdate,?,1, 1, 2 )";
+         String query ="INSERT INTO board VALUES (seq_b_no.nextval,?, sysdate, 1, 1,?, '댓글', 1)";
          pstmt = conn.prepareStatement(query);   
 
          pstmt.setString(1, vo.getB_title());
@@ -101,7 +101,7 @@ public class BoardDAO {
 
          // 2. Connection 얻어오기
          String url = "jdbc:oracle:thin:@localhost:1521:xe";
-         conn = DriverManager.getConnection(url, "gunlee", "0000");
+         conn = DriverManager.getConnection(url, "desr", "desr");
 
          // 3. SQL문 준비 / 바인딩 / 실행
          String query = "SELECT b.b_no, b.b_title, b.b_date, b.b_view, b.b_commview , dm.MEM_NAME "
