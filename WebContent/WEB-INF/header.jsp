@@ -47,7 +47,8 @@
 
 						<!-- Navbar Toggler -->
 						<div class="classy-navbar-toggler">
-							<span class="navbarToggler"><span></span><span></span><span></span></span>
+							<span class="navbarToggler">
+							</span>
 						</div>
 
 						<!-- Menu -->

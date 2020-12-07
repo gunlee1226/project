@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ page import="project.BoardDAO"%>
 <%@ page import="project.BoardVO"%>
@@ -10,6 +11,7 @@
    request.setCharacterEncoding("UTF-8");
 	BoardDAO dao = new BoardDAO();
 	List<BoardVO> list = dao.getList();
+	
 %>
 
 
@@ -23,14 +25,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link rel="icon" href="img/core-img/favicon.ico">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+	
+	<!-- ##### All Javascript Script ##### -->
+	<!-- jQuery-2.2.4 js -->
+	<script src="js/jquery/jquery-2.2.4.min.js"></script>
+	<!-- Popper js -->
+	<script src="js/bootstrap/popper.min.js"></script>
+	<!-- Bootstrap js -->
+	<script src="js/bootstrap/bootstrap.min.js"></script>
+	<!-- All Plugins js -->
+	<script src="js/plugins/plugins.js"></script>
+	<!-- Active js -->
+	<script src="js/active.js"></script>
 
 
 <title>자 유 게 시 판</title>
@@ -39,37 +47,12 @@
 
 
 <body style="font-family: myfont">
-
-	<!-- 네비 바   (헤더) -->
-	<nav class="navbar navbar-expand-sm bg-light navbar-light">
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<a class="navbar-brand" href="main.html">
-				<div class="firstlogo" style="width: 100px;"></div>
-			</a> <input id="myInput" type="text" placeholder="검색하기"
-				style="width: 80%;" autofocus />
-			<!-- 검색된 레시피로 이동 -->
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="member.html">회원가입</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="????.html">로그인</a>
-				</li>
-				<form action="BoardMain.jsp" method="post">
-				<li class="nav-item"><a class="nav-link" >
-				<input type ="submit" value="자게">자유게시판</a>
-				</li>
-				</form>
-			</ul>
-		</div>
-	</nav>
-	<!-- 로고 부분  (헤더) -->
-	<a class="nav-link" href="Main.jsp">
-		<h1 class="head">오늘 뭐 먹지 ?</h1>
-	</a>
-
+<!--  헤더부분 -->
+		<c:import url="/WEB-INF/header.jsp"></c:import>
 
 	<!-- 메인 내용 -->
 	<div class="container p-3 my-3">
-		<!-- 검색 하기 기능 -->
+		
 
 		<!--메뉴 고르기 & 최근 레시피 기능  -->
 		<div class="row">
@@ -88,6 +71,7 @@
 					</thead>
 
 					<tbody>
+					
 					<% 
       for(BoardVO vo : list) {
    %>	
@@ -113,9 +97,9 @@
 
 		<div class="row">
 			<div class="col-md-12" style="text-align: right;">
-				<form action="InsertForm.jsp" method="POST">
-					<input type="submit" name="binsert" value="글쓰기">
-				</form>
+	
+						<a href="InsertForm.jsp" method="POST">
+					글쓰기</a>
 			</div>
 		</div>
 	</div>

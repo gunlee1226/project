@@ -1537,6 +1537,35 @@ h3 {
       .map-area iframe {
         height: 300px; } }
 
+/* loginform.jsp*/
+.logincss {
+   margin: 15px;
+   width: 60%;
+   height: 40px;
+   border: 2px solid skyblue;
+   color: skyblue;
+   border-top-left-radius: 5px;
+   border-bottom-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+}
+
+.loginbutton {
+   border: 1px solid skyblue;
+   background-color: white;
+   color: skyblue;
+   padding: 5px;
+   border-top-left-radius: 5px;
+   border-bottom-left-radius: 5px;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+   width: 12%;
+}
+
+.headerimg {
+   width : 100%;
+   background-image: url(img/bg-img/header.jpg);
+}
 /* ====== The End ====== */
 
 /*# sourceMappingURL=style.css.map */
