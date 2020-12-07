@@ -67,7 +67,7 @@
 										<!-- 로그인 전 -->
 										<li><a href="loginform.jsp">로그인</a></li>
 										<li><a href="signupform.jsp">회원가입</a></li>
-										
+										<li><a href="BoardMain.jsp">자유게시판</a></li>
 									</c:when>
 									<c:otherwise>
 										<!-- 로그인 후 -->
@@ -75,6 +75,7 @@
 										<li>${sessionScope.loginUser}님 안녕하세요^^</li>
 										<a href="logout.jsp">로그아웃</a>
 											<li><a href="BoardMain.jsp">자유게시판</a></li>
+											
 									</c:otherwise>
 								</c:choose>
 							</ul>
