@@ -1,6 +1,7 @@
 package project;
 
 import java.io.IOException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -53,7 +54,6 @@ public class MemberServlet extends HttpServlet {
 				System.out.println("성공");
 				HttpSession session = request.getSession(true);
 				session.setAttribute("User", vo);
-				
 				response.sendRedirect("Main.jsp");
 				return;
 			}

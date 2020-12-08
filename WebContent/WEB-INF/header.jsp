@@ -47,8 +47,7 @@
 
 						<!-- Navbar Toggler -->
 						<div class="classy-navbar-toggler">
-							<span class="navbarToggler">
-							</span>
+							<span class="navbarToggler"><span></span><span></span><span></span></span>
 						</div>
 
 						<!-- Menu -->
@@ -64,7 +63,7 @@
 							<!-- 비로그인/로그인 -->
 							<ul>
 								<c:choose>
-									<c:when test="${loginUser == null }">
+									<c:when test="${User == null }">
 										<!-- 로그인 전 -->
 										<li><a href="loginform.jsp">로그인</a></li>
 										<li><a href="signupform.jsp">회원가입</a></li>
@@ -72,9 +71,8 @@
 									</c:when>
 									<c:otherwise>
 										<!-- 로그인 후 -->
-										<li><a href="#">회원정보수정</a></li>
-										<li>${sessionScope.loginUser}님 안녕하세요^^</li>
-										<a href="logout.jsp">로그아웃</a>
+										<li><a href="#">${User.mem_name}</a>님 안녕하세요^^</li>
+										<a href="/project/memberServlet?a=logout">로그아웃</a>
 											<li><a href="BoardMain.jsp">자유게시판</a></li>
 											
 									</c:otherwise>

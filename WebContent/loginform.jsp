@@ -29,7 +29,7 @@
 </head>
 <body style="text-align: center;">
 	<header>
-			<c:import url="/WEB-INF/header.jsp"></c:import>
+			<c:import url="WEB-INF/header.jsp"></c:import>
 	</header>
 	<form action="memberServlet" name="loginform" method="get" id="login-form">
 		<input type="hidden" name="a" value="login" />
