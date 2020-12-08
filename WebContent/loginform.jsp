@@ -1,28 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="project.MemberVO"%>
+<%
+	MemberVO vo = new MemberVO();
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css" type="text/css">
-	
+<style>
+
+</style>
 <meta charset="UTF-8">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+	<!-- ##### All Javascript Script ##### -->
+	<!-- jQuery-2.2.4 js -->
+	<script src="js/jquery/jquery-2.2.4.min.js"></script>
+	<!-- Popper js -->
+	<script src="js/bootstrap/popper.min.js"></script>
+	<!-- Bootstrap js -->
+	<script src="js/bootstrap/bootstrap.min.js"></script>
+	<!-- All Plugins js -->
+	<script src="js/plugins/plugins.js"></script>
+	<!-- Active js -->
+	<script src="js/active.js"></script>
 <title>로그인</title>
 </head>
 <body style="text-align: center;">
 	<header>
-	<c:import url="/WEB-INF/header.jsp"></c:import>
-	
-	
+			<c:import url="/WEB-INF/header.jsp"></c:import>
 	</header>
-	<form action="login.jsp" method="post">
+	<form action="memberServlet" name="loginform" method="get" id="login-form">
+		<input type="hidden" name="a" value="login" />
 		<div>
-			<input class="logincss" type="text" name="input_mem_id"
-				placeholder=" 아이디를 입력하세요."><br> 
-				<input class="logincss"
-				type="password" name="input_mem_pwd" placeholder=" 비밀번호를 입력하세요."><br>
+			<input class="logincss" type="text" name="input_mem_id" placeholder=" 아이디를 입력하세요."><br> 
+			<input class="logincss" type="password" name="input_mem_pwd" placeholder=" 비밀번호를 입력하세요."><br>
 		</div>
+		
+		<!--  -->
+		<c:if test="${param.result eq 'fail' }">
+			<P>로그인이 실패했습니다. 다시입력해주세요</P>
+		</c:if>
+		
 		<div style="margin-top: 5%">
 			<input class="loginbutton" type="submit" value="로그인 하기">
 		</div>

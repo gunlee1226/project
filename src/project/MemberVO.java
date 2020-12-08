@@ -5,7 +5,6 @@ public class MemberVO {
 	private String mem_name;
 	private String mem_id;
 	private String mem_pwd;
-	private String mem_scr;
 	private String mem_num;
 	private int des_code;
 	//게터세터
@@ -26,12 +25,6 @@ public class MemberVO {
 	}
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
-	}
-	public String getMem_scr() {
-		return mem_scr;
-	}
-	public void setMem_scr(String mem_scr) {
-		this.mem_scr = mem_scr;
 	}
 	public String getMem_pwd() {
 		return mem_pwd;
@@ -54,8 +47,8 @@ public class MemberVO {
 	
 	@Override
 	public String toString() {
-		return "MemberVO [mem_code=" + mem_code + ", mem_name=" + mem_name + ", mem_id=" + mem_id + ", mem_scr="
-				+ mem_scr + ", mem_pwd=" + mem_pwd + ", mem_num=" + mem_num + ", des_code=" + des_code + "]";
+		return "MemberVO [mem_code=" + mem_code + ", mem_name=" + mem_name + ", mem_id=" + mem_id
+				+ ", mem_pwd=" + mem_pwd + ", mem_num=" + mem_num + ", des_code=" + des_code + "]";
 	}
 	/**
 	 * @param mem_code
@@ -67,23 +60,22 @@ public class MemberVO {
 	 * @param des_code
 	 */
 	
-	public MemberVO(int mem_code, String mem_name, String mem_id, String mem_scr, String mem_pwd, String mem_num,
-			int des_code) {
+	public MemberVO(int mem_code, String mem_name, String mem_id, String mem_pwd, String mem_num, int des_code) {
 		super();
 		this.mem_code = mem_code;
 		this.mem_name = mem_name;
 		this.mem_id = mem_id;
-		this.mem_scr = mem_scr;
 		this.mem_pwd = mem_pwd;
 		this.mem_num = mem_num;
 		this.des_code = des_code;
 	}
-	public MemberVO(String mem_name, String mem_id, String mem_pwd, String mem_num) {
+	public MemberVO(String mem_id, String mem_pwd, String mem_name, String mem_num, int des_code) {
 		super();
 		this.mem_name = mem_name;
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
 		this.mem_num = mem_num;
+		this.des_code = des_code;
 	}
 	public MemberVO(String mem_id, String mem_pwd) {
 		super();
@@ -91,4 +83,18 @@ public class MemberVO {
 		this.mem_pwd = mem_pwd;
 	}
 	public MemberVO() {}
+	public MemberVO(String mem_name, String mem_num, int des_code) {
+		super();
+		this.mem_name = mem_name;
+		this.mem_num = mem_num;
+		this.des_code = des_code;
+	}
+	
+	public MemberVO(String mem_name, String mem_id, String mem_pwd, String mem_num) {
+		super();
+		this.mem_name = mem_name;
+		this.mem_num = mem_num;
+		this.mem_id = mem_id;
+		this.mem_pwd = mem_pwd;
+	}
 }

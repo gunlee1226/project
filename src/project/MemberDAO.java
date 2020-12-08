@@ -14,6 +14,7 @@ import org.apache.tomcat.jni.User;
 
 import project.MemberVO;
 
+
 public class MemberDAO {
 
 	public int signup(MemberVO vo) {
@@ -27,7 +28,7 @@ public class MemberDAO {
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "insert into d_member (Mem_code,Mem_name,Mem_id,Mem_pwd,Mem_num) values (seq_D_MEMBER_mem_code.nextval, ?, ?, ?, ?)";
+			String query = "insert into d_member (Mem_code,Mem_name,Mem_id,Mem_pwd,Mem_num) values (seq_mem_code.nextval, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(query);
 
 			pstmt.setString(1, vo.getMem_name());
@@ -56,29 +57,36 @@ public class MemberDAO {
 		return count;
 	}
 
-	public boolean login(String input_mem_id, String input_mem_pwd) {
+	public MemberVO login(String input_mem_id, String input_mem_pwd) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String dbpw = null;
-		boolean can = true;
-
+		MemberVO vo = null;
+		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
-			
-			
-			String query = "select mem_pwd from d_member where mem_id=?";
+
+			String query = "select * from d_member where mem_id = ? and mem_pwd=? ";
 			pstmt = conn.prepareStatement(query);
+			
 			pstmt.setString(1, input_mem_id);
+			pstmt.setString(2, input_mem_pwd);
+			
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				dbpw = rs.getString("mem_pwd");
+
+			while (rs.next()) {
+				String mem_name = rs.getString("mem_name");
+				String mem_num = rs.getString("mem_num");
+				int des_code = rs.getInt("des_code");
 				
-				if(dbpw.equals(input_mem_pwd)) can =true;
-				else can = false;
-			}else can = false;
+				
+				vo = new MemberVO();
+				vo.setMem_name(mem_name);
+				vo.setMem_num(mem_num);
+				vo.setDes_code(des_code);
+			}
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
@@ -86,13 +94,16 @@ public class MemberDAO {
 			System.out.println("error:" + e);
 		} finally {
 			try {
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-				if (rs != null) rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+				if (rs != null)
+					rs.close();
 			} catch (SQLException e) {
 				System.out.println("error:" + e);
 			}
 		}
-		return can;
+		return vo;
 	}
 }
