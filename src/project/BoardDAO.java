@@ -51,8 +51,8 @@ public class BoardDAO {
       return count;
    }
 
-   /*
-   public void delete(String no) {
+   
+   public void delete(int no) {
       Connection conn = null;
       PreparedStatement pstmt = null;
       int count = 0 ;
@@ -60,12 +60,12 @@ public class BoardDAO {
       try {
          Class.forName("oracle.jdbc.driver.OracleDriver");
          
-         String url = "jdbc:oracle:thin:@localhost:1521:orcl";
-         conn = DriverManager.getConnection(url, "gunlee", "0000");
+         String url = "jdbc:oracle:thin:@localhost:1521:xe";
+         conn = DriverManager.getConnection(url, "desr", "desr");
          
          String query ="delete from Board where b_no =?";
          pstmt = conn.prepareStatement(query);   
-         pstmt.setString(1, no);
+         pstmt.setInt(1, no);
             
          count = pstmt.executeUpdate();
          
@@ -86,7 +86,44 @@ public class BoardDAO {
    
    }
    
-   */
+
+   public void update(BoardVO vo) {
+	      Connection conn = null;
+	      PreparedStatement pstmt = null;
+	      int count = 0 ;
+	      
+	      try {
+	         Class.forName("oracle.jdbc.driver.OracleDriver");
+	         
+	         String url = "jdbc:oracle:thin:@localhost:1521:xe";
+	         conn = DriverManager.getConnection(url, "desr", "desr");
+	         
+	         String query ="update board set b_title =?, b_contents =? where b_no = ?";
+	         pstmt = conn.prepareStatement(query);  
+	         
+	         pstmt.setString(1, vo.getB_title());
+	         pstmt.setString(2, vo.getB_contents());
+	         pstmt.setInt(3, vo.getB_no());
+	            
+	         count = pstmt.executeUpdate();
+	         
+	         System.out.println(count + "건 수정");
+	         
+	      } catch (ClassNotFoundException e) {
+	         System.out.println("error: 드라이버 로딩 실패 - " + e);
+	      } catch (SQLException e) {
+	         System.out.println("error:" + e);
+	      } finally {
+	         try {
+	            if (pstmt != null) pstmt.close();
+	            if (conn != null) conn.close();
+	         } catch (SQLException e) {
+	            System.out.println("error:" + e);
+	         }
+	      }
+	   
+	   }
+	   
    public List<BoardVO> getList() {
 
       // 0. import java.sql.*;
@@ -151,4 +188,53 @@ public class BoardDAO {
 
    }
 
-} 
+
+public void getBoard(int no) {
+    Connection conn = null;
+    PreparedStatement pstmt = null;
+    ResultSet rs = null;
+    BoardVO vo = null;
+    int count = 0 ;
+    
+    try {
+       Class.forName("oracle.jdbc.driver.OracleDriver");
+       
+       String url = "jdbc:oracle:thin:@localhost:1521:xe";
+       conn = DriverManager.getConnection(url, "desr", "desr");
+       
+       String query ="SELECT * FROM  D_MEMBER;\r\n"
+       		+ "select b.b_no, b.b_title, b.b_contents, b.b_view, b.b_date, b.MEM_code, d.MEM_NAME\r\n"
+       		+ "from board b, d_member d \r\n"
+       		+ "where b.mem_code = d.mem_code \r\n"
+       		+ "and b.b_no = ?";
+       pstmt = conn.prepareStatement(query);  
+       
+       pstmt.setInt(1, no);
+          
+       rs = pstmt.executeQuery();
+       while(rs.next()) {
+    	   String b_title = rs.getString("b_title");
+    	   String b_contents = rs.getString("bcontents");
+    	   int b_view = rs.getInt("b_view");
+    	   String b_date = rs.getString("b_date");
+    	   int mem_code = rs.getInt("mem_code");
+    	   String mem_name = rs.getString("mem_name");
+    	   
+    	   vo = new BoardVO(b_title, b_contents, b_view, b_date, mem_code, mem_name);
+    	   
+       }
+    } catch (ClassNotFoundException e) {
+       System.out.println("error: 드라이버 로딩 실패 - " + e);
+    } catch (SQLException e) {
+       System.out.println("error:" + e);
+    } finally {
+       try {
+          if (pstmt != null) pstmt.close();
+          if (conn != null) conn.close();
+       } catch (SQLException e) {
+          System.out.println("error:" + e);
+       }
+    }
+ 
+ }
+}

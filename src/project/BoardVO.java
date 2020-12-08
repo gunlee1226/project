@@ -13,6 +13,7 @@ public class BoardVO {
    private int b_commview;
    private String b_comment;
    private String MEM_NAME;
+   private int MEM_CODE;
 
 
    public BoardVO() {}
@@ -34,9 +35,28 @@ public class BoardVO {
     
    }
    
+   public BoardVO(String b_title, String b_contents , int b_view, String b_date,int MEM_CODE, String MEM_NAME) {
+	      super();
+	      this.b_title = b_title;
+	      this.b_date = b_date;
+	      this.b_contents = b_contents;
+	      this.b_view = b_view;
+	      this.MEM_CODE = MEM_CODE;
+	      this.MEM_NAME = MEM_NAME;
+	    
+	   }
+
+   
   
 
+public int getMEM_CODE() {
+	return MEM_CODE;
+   }
+	public void setMEM_CODE(int MEM_CODE) {
+		this.MEM_CODE = MEM_CODE;
+	}
 
+   
    public String getMEM_NAME() {
 	return MEM_NAME;
    }
