@@ -69,6 +69,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<form action="InsertBoard.jsp?name=multipart" method="post" />
+				<input type = "hidden" name ="a" value = "write">
 				<table class="table table-hover" style="text-align: center;">
 
 					<thead>

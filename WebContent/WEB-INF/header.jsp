@@ -71,7 +71,8 @@
 									</c:when>
 									<c:otherwise>
 										<!-- 로그인 후 -->
-										<li><a href="#">${User.mem_name}</a>님 안녕하세요^^</li>
+										<li><a href="#">${User}</a>님 안녕하세요^^</li>
+								
 										<a href="/project/memberServlet?a=logout">로그아웃</a>
 											<li><a href="BoardMain.jsp">자유게시판</a></li>
 											

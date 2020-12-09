@@ -31,17 +31,12 @@
 	<header>
 			<c:import url="WEB-INF/header.jsp"></c:import>
 	</header>
-	<form action="memberServlet" name="loginform" method="get" id="login-form">
-		<input type="hidden" name="a" value="login" />
+	<form action="login.jsp" name="loginform" method="get" id="login-form">
+		
 		<div>
 			<input class="logincss" type="text" name="input_mem_id" placeholder=" 아이디를 입력하세요."><br> 
 			<input class="logincss" type="password" name="input_mem_pwd" placeholder=" 비밀번호를 입력하세요."><br>
 		</div>
-		
-		<!--  -->
-		<c:if test="${param.result eq 'fail' }">
-			<P>로그인이 실패했습니다. 다시입력해주세요</P>
-		</c:if>
 		
 		<div style="margin-top: 5%">
 			<input class="loginbutton" type="submit" value="로그인 하기">

@@ -36,7 +36,7 @@
 			<input class="logincss" type="password" name="mem_pwd1" id="input2" placeholder=" 비밀번호확인.">
 				<div class="alert alert-success" id = "alert-success">비밀번호가 일치합니다</div>
 				<div class="alert alert-danger" id = "alert-danger">비밀번호가 일치하지 않습니다</div>
-			<input class="logincss" type="number" name="mem_num" placeholder=" 전화번호.">
+			<input class="logincss" type="text" name="mem_num" placeholder=" 전화번호.">
 		</div>
 		<div style="margin-top: 5%">
 			<input class="loginbutton" type="submit" value="회원가입 하기">
