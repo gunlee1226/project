@@ -1,10 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="project.MemberVO"%>
-<%
-	MemberVO vo = new MemberVO();
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,7 +31,7 @@
 	<form action="login.jsp" name="loginform" method="get" id="login-form">
 		
 		<div>
-			<input class="logincss" type="text" name="input_mem_id" placeholder=" 아이디를 입력하세요."><br> 
+			<input class="logincss" type="text" name="input_mem_id" placeholder=" 아이디를 입력하세요." autofocus><br> 
 			<input class="logincss" type="password" name="input_mem_pwd" placeholder=" 비밀번호를 입력하세요."><br>
 		</div>
 		

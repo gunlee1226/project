@@ -63,7 +63,7 @@
 							<!-- 비로그인/로그인 -->
 							<ul>
 								<c:choose>
-									<c:when test="${User == null }">
+									<c:when test="${Userid == null }">
 										<!-- 로그인 전 -->
 										<li><a href="loginform.jsp">로그인</a></li>
 										<li><a href="signupform.jsp">회원가입</a></li>
@@ -71,10 +71,12 @@
 									</c:when>
 									<c:otherwise>
 										<!-- 로그인 후 -->
-										<li><a href="#">${User}</a>님 안녕하세요^^</li>
-								
-										<a href="/project/memberServlet?a=logout">로그아웃</a>
-											<li><a href="BoardMain.jsp">자유게시판</a></li>
+										
+										<li><a href="#">${Username}</a>님 안녕하세요^^</li>
+										
+										<li><a href="logout.jsp">로그아웃</a></li>
+										<li><a href="????.jsp">회원정보 수정</a></li>
+										<li><a href="BoardMain.jsp">자유게시판</a></li>
 											
 									</c:otherwise>
 								</c:choose>

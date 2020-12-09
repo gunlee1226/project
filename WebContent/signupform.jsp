@@ -28,7 +28,7 @@
 	<!-- 회원가입 -->
 	<form action="signup.jsp" method="post">
 		<div>
-			<input class="logincss" type="text" name="mem_name"
+			<input class="logincss" type="text" name="mem_name" autofocus
 				placeholder=" 이름을 입력하세요."><br> 
 			<input class="logincss" type="text" name="mem_id" placeholder=" 아이디를 입력하세요.">
 			<input class="logincss" type="password" name="mem_pwd" id="input1" placeholder=" 비밀번호.">

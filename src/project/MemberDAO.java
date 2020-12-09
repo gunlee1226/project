@@ -2,6 +2,7 @@ package project;
 
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +17,7 @@ import project.MemberVO;
 
 
 public class MemberDAO {
-
+//회원가입
 	public int signup(MemberVO vo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -57,30 +58,33 @@ public class MemberDAO {
 		return count;
 	}
 
-	public boolean login(String input_mem_id, String input_mem_pwd) {
+//	로그인
+	public MemberVO login(String input_mem_id, String input_mem_pwd) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		MemberVO vo = null;
-		String dbpw = null;
-		boolean can = true;
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "select * from d_member where mem_id = ?";
+			String query = "select mem_code,mem_name,mem_num,des_code from d_member where mem_id = ? and mem_pwd =?";
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, input_mem_id);
+			pstmt.setString(2, input_mem_pwd);
 			
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				dbpw = rs.getString("mem_pwd");
-				
-				if(dbpw.equals(input_mem_pwd)) can = true;
-				else can = false;
+			if(rs != null && rs.isBeforeFirst()) {
+				vo = new MemberVO();
+				rs.next();
+				vo.setMem_code(rs.getInt("mem_code"));
+				vo.setMem_name(rs.getString("mem_name"));
+				vo.setMem_num(rs.getString("mem_num"));
+				vo.setDes_code(rs.getInt("des_code"));
+				System.out.println(vo.getMem_code() + "번 고객" + vo.getMem_name() + "님이 로그인하셨습니다");
 			}
 		
 		} catch (ClassNotFoundException e) {
@@ -99,6 +103,6 @@ public class MemberDAO {
 				System.out.println("error:" + e);
 			}
 		}
-		return can;
+		return vo;
 	}
 }

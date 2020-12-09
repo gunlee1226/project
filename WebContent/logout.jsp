@@ -3,5 +3,6 @@
 	request.setCharacterEncoding("UTF-8");
 
 	session.invalidate();
-	response.sendRedirect("loginform.jsp");
+	response.sendRedirect("Main.jsp");
 %>
+

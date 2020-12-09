@@ -12,6 +12,7 @@
 	BoardDAO dao = new BoardDAO();
 	List<BoardVO> list = dao.getList();
 	
+	
 %>
 
 
@@ -77,7 +78,7 @@
    %>	
 						<tr>
 							<td><%=vo.getB_no() %> </td>
-							<td><%=vo.getMEM_NAME() %></td>
+							<td><%=vo.getMEM_CODE() %></td>
 							<td><%=vo.getB_title() %> </td>
 							<td><%=vo.getB_date() %></td>
 							<td><%=vo.getB_view() %></td>
