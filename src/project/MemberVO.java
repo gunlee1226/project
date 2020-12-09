@@ -6,20 +6,19 @@ public class MemberVO {
 	private String mem_id;
 	private String mem_pwd;
 	private String mem_num;
-	private int des_code;
-	
+	private String mem_rec;
 	
 	
 	
 //	생성자
 
-	public MemberVO(String mem_id, String mem_pwd, String mem_name, String mem_num, int des_code) {
+	public MemberVO(String mem_id, String mem_pwd, String mem_name, String mem_num) {
 		super();
 		this.mem_name = mem_name;
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
 		this.mem_num = mem_num;
-		this.des_code = des_code;
+	
 	}
 	public MemberVO(String mem_id, String mem_pwd, int mem_code, String mem_name) {
 		super();
@@ -29,20 +28,13 @@ public class MemberVO {
 		this.mem_name = mem_name;
 	}
 	public MemberVO() {}
-	public MemberVO(String mem_name, String mem_num, int des_code) {
+	public MemberVO(String mem_name, String mem_num) {
 		super();
 		this.mem_name = mem_name;
 		this.mem_num = mem_num;
-		this.des_code = des_code;
 	}
 	
-	public MemberVO(String mem_name, String mem_id, String mem_pwd, String mem_num) {
-		super();
-		this.mem_name = mem_name;
-		this.mem_id = mem_id;
-		this.mem_pwd = mem_pwd;
-		this.mem_num = mem_num;
-	}
+	
 	
 	/**
 	 * @param mem_code
@@ -53,16 +45,22 @@ public class MemberVO {
 	 * @param des_code
 	 */
 //	로그인시 d_member 의 모든 정보를 vo에 넣어줍니다.
-	public MemberVO(int mem_code, String mem_name, String mem_id, String mem_pwd, String mem_num, int des_code) {
+	public MemberVO(int mem_code, String mem_name, String mem_id, String mem_pwd, String mem_num) {
 		super();
 		this.mem_name = mem_name;
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
 		this.mem_num = mem_num;
 		this.mem_code = mem_code;
-		this.des_code = des_code;
+
 	}
 	//게터세터
+	public String getMem_rec() {
+		return mem_rec;
+	}
+	public void setMem_rec(String mem_rec) {
+		this.mem_rec = mem_rec;
+	}
 	public int getMem_code() {
 		return mem_code;
 	}
@@ -93,18 +91,13 @@ public class MemberVO {
 	public void setMem_num(String mem_num) {
 		this.mem_num = mem_num;
 	}
-	public int getDes_code() {
-		return des_code;
-	}
-	public void setDes_code(int des_code) {
-		this.des_code = des_code;
-	}
+
 
 	
 	@Override
 	public String toString() {
 		return "MemberVO [mem_code=" + mem_code + ", mem_name=" + mem_name + ", mem_id=" + mem_id
-				+ ", mem_pwd=" + mem_pwd + ", mem_num=" + mem_num + ", des_code=" + des_code + "]";
+				+ ", mem_pwd=" + mem_pwd + ", mem_num=" + mem_num + "]";
 	}
 
 	

@@ -70,7 +70,7 @@ public class MemberDAO {
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "select mem_code,mem_name,mem_num,des_code from d_member where mem_id = ? and mem_pwd =?";
+			String query = "select mem_code,mem_name,mem_num from d_member where mem_id = ? and mem_pwd =?";
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, input_mem_id);
@@ -83,7 +83,7 @@ public class MemberDAO {
 				vo.setMem_code(rs.getInt("mem_code"));
 				vo.setMem_name(rs.getString("mem_name"));
 				vo.setMem_num(rs.getString("mem_num"));
-				vo.setDes_code(rs.getInt("des_code"));
+
 				System.out.println(vo.getMem_code() + "번 고객" + vo.getMem_name() + "님이 로그인하셨습니다");
 			}
 		

@@ -7,19 +7,17 @@
 
 
 <%
-   request.setCharacterEncoding("UTF-8");
-	
+	request.setCharacterEncoding("UTF-8");
+
 String b_title = request.getParameter("inp_title");
 String b_contents = request.getParameter("inp_contetns");
 
-	
-	BoardVO vo = new BoardVO(b_title, b_contents);
 
-	BoardDAO dao = new BoardDAO();
-	dao.insert(vo);
+BoardVO vo = new BoardVO(b_title, b_contents);
+
+BoardDAO dao = new BoardDAO();
+dao.insert(vo);
 response.sendRedirect("BoardMain.jsp");
-
-	
 %>
 
 

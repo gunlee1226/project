@@ -12,56 +12,57 @@ public class BoardVO {
    private int b_view;
    private int b_commview;
    private String b_comment;
-   private String MEM_NAME;
-   private int MEM_CODE;
+   private String mem_name;
+   private int mem_code;
 
 
    public BoardVO() {}
    
-   public BoardVO (String b_title, String b_contents) {
+   public BoardVO (String b_title, String b_contents ) {
 	   this.b_title = b_title;
 	   this.b_contents = b_contents;
-
    }
 
-   public BoardVO(int b_no, String b_title, String b_date, int b_view, int b_commview, String MEM_NAME) {
+   
+/* boardMain에서 보여지는거*/
+   public BoardVO(int b_no, String b_title, String b_date, int b_view, int b_commview, String mem_name) {
       super();
       this.b_no = b_no;
       this.b_title = b_title;
       this.b_date = b_date;
       this.b_view = b_view;
       this.b_commview = b_commview;
-      this.MEM_NAME = MEM_NAME;
+      this.mem_name = mem_name;
     
    }
    
-   public BoardVO(String b_title, String b_contents , int b_view, String b_date,int MEM_CODE, String MEM_NAME) {
+   public BoardVO(String b_title, String b_contents , int b_view, String b_date,int mem_code, String mem_name) {
 	      super();
 	      this.b_title = b_title;
 	      this.b_date = b_date;
 	      this.b_contents = b_contents;
 	      this.b_view = b_view;
-	      this.MEM_CODE = MEM_CODE;
-	      this.MEM_NAME = MEM_NAME;
+	      this.mem_code = mem_code;
+	      this.mem_name = mem_name;
 	    
 	   }
 
    
   
 
-public int getMEM_CODE() {
-	return MEM_CODE;
+public int getMem_code() {
+	return mem_code;
    }
-	public void setMEM_CODE(int MEM_CODE) {
-		this.MEM_CODE = MEM_CODE;
+	public void setMem_code(int mem_code) {
+		this.mem_code = mem_code;
 	}
 
    
-   public String getMEM_NAME() {
-	return MEM_NAME;
+   public String getMem_name() {
+	return mem_name;
    }
-	public void setMEM_NAME(String MEM_NAME) {
-		this.MEM_NAME = MEM_NAME;
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
 	}
 
 

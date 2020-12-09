@@ -62,12 +62,20 @@
 	<!-- 로고 부분  (헤더) -->
 	<c:import url="/WEB-INF/header.jsp"></c:import>
 	<!-- 메인 내용 -->
+		
+			<%String Userid = null;
+			if(session.getAttribute("Userid") != null) {
+				Userid = (String) session.getAttribute("Userid");
+			}
+			
+			%>
 	<div class="container p-3 my-3">
 		<!-- 검색 하기 기능 -->
 
 		<!--메뉴 고르기 & 최근 레시피 기능  -->
 		<div class="row">
 			<div class="col-md-12">
+		
 				<form action="InsertBoard.jsp?name=multipart" method="post" />
 				<input type = "hidden" name ="a" value = "write">
 				<table class="table table-hover" style="text-align: center;">

@@ -27,8 +27,8 @@
 		session.setAttribute("Userpwd", input_mem_pwd);
 		session.setAttribute("Usercode", vo.getMem_code());
 		session.setAttribute("Username", vo.getMem_name());
-		session.setAttribute("Userdes", vo.getDes_code());
 		session.setAttribute("Usernum", vo.getMem_num());
+		session.setAttribute("Userrec", vo.getMem_rec());
 		
 		/*로그인 시 메인화면으로 이동 */
 		response.sendRedirect("Main.jsp");

@@ -15,22 +15,23 @@ public class BoardDAO {
    public int insert(BoardVO vo) {
       Connection conn = null;
       PreparedStatement pstmt = null;
+      ResultSet rs = null;
       int count = 0 ;
-
+      
+  
       try {
          Class.forName("oracle.jdbc.driver.OracleDriver");
 
          String url = "jdbc:oracle:thin:@localhost:1521:xe";
          conn = DriverManager.getConnection(url, "desr", "desr");
 
-         String query ="INSERT INTO board VALUES (seq_b_no.nextval,?, sysdate, 1, 1,?, '댓글', 1)";
+         String query ="INSERT INTO board VALUES (seq_b_no.nextval,?, sysdate, 1, 1,?, '댓글', ?)";
          pstmt = conn.prepareStatement(query);   
 
          pstmt.setString(1, vo.getB_title());
-         System.out.print(vo.getB_title());
-         
-         
+
          pstmt.setString(2, vo.getB_contents());
+         pstmt.setInt(3, vo.getMem_code());
        
          count = pstmt.executeUpdate();
 
@@ -42,6 +43,7 @@ public class BoardDAO {
          System.out.println("error:" + e);
       } finally {
          try {
+        	
             if (pstmt != null) pstmt.close();
             if (conn != null) conn.close();
          } catch (SQLException e) {
@@ -155,12 +157,12 @@ public class BoardDAO {
             String b_date = rs.getString(3);
             int b_view = rs.getInt(4);
             int b_commview = rs.getInt(5);
-            String MEM_NAME = rs.getString(6);
+            String mem_name = rs.getString(6);
            
                
 
 
-            BoardVO vo = new BoardVO(b_no, b_title, b_date, b_view, b_commview, MEM_NAME);
+            BoardVO vo = new BoardVO(b_no, b_title, b_date, b_view, b_commview, mem_name);
 
             list.add(vo);
 
