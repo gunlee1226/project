@@ -5,6 +5,7 @@
 <%@ page import="project.BoardVO"%>
 <%@ page import="java.util.List"%>
 
+	
 
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -20,6 +21,8 @@ BoardDAO dao = new BoardDAO();
 dao.insert(vo);
 response.sendRedirect("BoardMain.jsp");
 %>
+	
+
 
 
 </script>

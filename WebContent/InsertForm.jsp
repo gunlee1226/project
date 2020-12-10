@@ -10,7 +10,7 @@
 
 <%
    request.setCharacterEncoding("UTF-8");
-
+	
 %>
 
 <!DOCTYPE html>
@@ -63,12 +63,6 @@
 	<c:import url="/WEB-INF/header.jsp"></c:import>
 	<!-- 메인 내용 -->
 		
-			<%String Userid = null;
-			if(session.getAttribute("Userid") != null) {
-				Userid = (String) session.getAttribute("Userid");
-			}
-			
-			%>
 	<div class="container p-3 my-3">
 		<!-- 검색 하기 기능 -->
 

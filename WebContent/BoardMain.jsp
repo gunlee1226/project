@@ -8,11 +8,9 @@
 
 
 <%
-   request.setCharacterEncoding("UTF-8");
-	BoardDAO dao = new BoardDAO();
-	List<BoardVO> list = dao.getList();
-	
-	
+	request.setCharacterEncoding("UTF-8");
+BoardDAO dao = new BoardDAO();
+List<BoardVO> list = dao.getList();
 %>
 
 
@@ -28,18 +26,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="img/core-img/favicon.ico">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-	
-	<!-- ##### All Javascript Script ##### -->
-	<!-- jQuery-2.2.4 js -->
-	<script src="js/jquery/jquery-2.2.4.min.js"></script>
-	<!-- Popper js -->
-	<script src="js/bootstrap/popper.min.js"></script>
-	<!-- Bootstrap js -->
-	<script src="js/bootstrap/bootstrap.min.js"></script>
-	<!-- All Plugins js -->
-	<script src="js/plugins/plugins.js"></script>
-	<!-- Active js -->
-	<script src="js/active.js"></script>
+
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
 
 
 <title>자 유 게 시 판</title>
@@ -48,12 +46,12 @@
 
 
 <body style="font-family: myfont">
-<!--  헤더부분 -->
-		<c:import url="/WEB-INF/header.jsp"></c:import>
+	<!--  헤더부분 -->
+	<c:import url="/WEB-INF/header.jsp"></c:import>
 
 	<!-- 메인 내용 -->
 	<div class="container p-3 my-3">
-		
+
 
 		<!--메뉴 고르기 & 최근 레시피 기능  -->
 		<div class="row">
@@ -72,23 +70,22 @@
 					</thead>
 
 					<tbody>
-					
-					<% 
-      for(BoardVO vo : list) {
-    	  
-   %>	
+
+						<%
+							for (BoardVO vo : list) {
+						%>
 						<tr>
-							<td><%=vo.getB_no() %> </td>
-							<td><%=vo.getMem_name() %></td>
-							<td><%=vo.getB_title() %> </td>
-							<td><%=vo.getB_date() %></td>
-							<td><%=vo.getB_view() %></td>
-							<td><%=vo.getB_commview() %></td>
+							<td><%=vo.getB_no()%></td>
+							<td><%=vo.getMem_name()%></td>
+							<td><%=vo.getB_title()%></td>
+							<td><%=vo.getB_date()%></td>
+							<td><%=vo.getB_view()%></td>
+							<td><%=vo.getB_commview()%></td>
 
 						</tr>
-	<%      
-      }					
-   %>
+						<%
+							}
+						%>
 					</tbody>
 
 				</table>
@@ -97,16 +94,20 @@
 
 		</div>
 
-<%if(Userid != null) {
-	session.getAttribute("Userid")%>
-}
+
+
 		<div class="row">
 			<div class="col-md-12" style="text-align: right;">
-	
-						<a href="InsertForm.jsp" method="POST">
-					글쓰기</a>
+
+				<%
+				
+				%>
+				<input type="button" value="글쓰기" onclick="Insertform();" id="write"
+					style="width: 5%">
+
 			</div>
 		</div>
+
 	</div>
 
 	<div class="footer text-center" style="margin-top: auto">
@@ -118,4 +119,15 @@
 
 </html>
 <script>
-</script> 
+function Insertform() {
+	var Userid = '<%=(String)session.getAttribute("Userid") %>';
+	 if(Userid == "null" ) {
+	location.href = 'loginform.jsp';
+	 }
+	 else {
+		 location.href = 'InsertForm.jsp';
+	 }
+
+	}
+
+</script>

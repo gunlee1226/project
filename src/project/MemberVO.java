@@ -45,13 +45,14 @@ public class MemberVO {
 	 * @param des_code
 	 */
 //	로그인시 d_member 의 모든 정보를 vo에 넣어줍니다.
-	public MemberVO(int mem_code, String mem_name, String mem_id, String mem_pwd, String mem_num) {
+	public MemberVO(int mem_code, String mem_name, String mem_id, String mem_pwd, String mem_num, String mem_rec) {
 		super();
 		this.mem_name = mem_name;
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
 		this.mem_num = mem_num;
 		this.mem_code = mem_code;
+		this.mem_rec = mem_rec;
 
 	}
 	//게터세터
