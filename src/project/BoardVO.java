@@ -18,9 +18,12 @@ public class BoardVO {
 
    public BoardVO() {}
    
-   public BoardVO (String b_title, String b_contents ) {
+   
+//   insertBoard
+   public BoardVO (String b_title, String b_contents, int mem_code ) {
 	   this.b_title = b_title;
 	   this.b_contents = b_contents;
+	   this.mem_code = mem_code;
    }
 
    

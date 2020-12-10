@@ -79,7 +79,7 @@
    %>	
 						<tr>
 							<td><%=vo.getB_no() %> </td>
-							<td><%=vo.getMem_code() %></td>
+							<td><%=vo.getMem_name() %></td>
 							<td><%=vo.getB_title() %> </td>
 							<td><%=vo.getB_date() %></td>
 							<td><%=vo.getB_view() %></td>
@@ -97,6 +97,9 @@
 
 		</div>
 
+<%if(Userid != null) {
+	session.getAttribute("Userid")%>
+}
 		<div class="row">
 			<div class="col-md-12" style="text-align: right;">
 	

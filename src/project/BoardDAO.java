@@ -143,7 +143,7 @@ public class BoardDAO {
          conn = DriverManager.getConnection(url, "desr", "desr");
 
          // 3. SQL문 준비 / 바인딩 / 실행
-         String query = "SELECT b.b_no, b.b_title, b.b_date, b.b_view, b.b_commview , dm.MEM_NAME "
+         String query = "SELECT b.b_no, b.b_title, b.b_date, b.b_view, b.b_commview , dm.mem_name "
          		+ "from board b Inner join D_MEMBER dm "
          		+ "ON b.MEM_CODE = dm.MEM_CODE order by b.b_no ASC";
          pstmt = conn.prepareStatement(query);   
