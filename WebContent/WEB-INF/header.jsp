@@ -75,7 +75,7 @@
 										<li><a href="#">${Username}</a>님 안녕하세요^^</li>
 										
 										<li><a href="logout.jsp">로그아웃</a></li>
-										<li><a href="????.jsp">회원정보 수정</a></li>
+										<li><a href="ModifyForm.jsp">회원정보 수정</a></li>
 										<li><a href="BoardMain.jsp">자유게시판</a></li>
 											
 									</c:otherwise>

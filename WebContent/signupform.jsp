@@ -31,9 +31,10 @@
 			<input class="logincss" type="text" name="mem_name" autofocus
 				placeholder=" 이름을 입력하세요."><br> 
 			<input class="logincss" type="text" name="mem_id" placeholder=" 아이디를 입력하세요.">
-			<input class="logincss" type="password" name="mem_pwd" id="input1" placeholder=" 비밀번호.">
+			<input class="logincss" type="button" id= "mem_check" onclick ="check" placeholder=" 아이디를 입력하세요.">
+			<input class="logincss" type="password" class ="pwd" name="mem_pwd" id="input1" placeholder=" 비밀번호.">
 			
-			<input class="logincss" type="password" name="mem_pwd1" id="input2" placeholder=" 비밀번호확인.">
+			<input class="logincss" type="password" class = "pwd" name="mem_pwd1" id="input2" placeholder=" 비밀번호확인.">
 				<div class="alert alert-success" id = "alert-success">비밀번호가 일치합니다</div>
 				<div class="alert alert-danger" id = "alert-danger">비밀번호가 일치하지 않습니다</div>
 			<input class="logincss" type="text" name="mem_num" placeholder=" 전화번호.">
@@ -53,24 +54,19 @@
 </body>
 </html>
 <script>
-$(function() {
-	$("#alert-success").hide();
-	$("#alert-danger").hide();
-	$("input").keyup(function() {
-		var pwd1 = $("#input1").val();
-		var pwd2 = $("#input2").val();
-		if(pwd1 != "" || pwd2 !="") {
-			if(pwd1 == pwd2) {
-				$("#alert-success").show();
-				$("#alert-danger").hide();
-				$("#submit").removeAttr("disabled");
-			}
-			else {
-				$("#alert-success").hide();
-				$("#alert-danger").show();
-				$("#submit").attr("disabled", "disabled");
-				
-			}
-		}
-	})})
+$('.pwd').focusout(function()) {
+	var pwd1 = $("#mem_pwd1").val();
+	var pwd2 = &("#mem_pwd2").val();
+	
+	if(pwd1 !=' ' && pwd2 == ' ') {
+		null;
+	} if (pwd1 == pwd2) {
+		$('#alert-success').show
+		$('#alert-danger').hide
+	}else {
+		alert("일치하지않음")
+	}
+	
+}
+
 </script>

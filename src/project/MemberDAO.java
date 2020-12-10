@@ -1,19 +1,10 @@
 package project;
 
 import java.sql.Connection;
-
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.tomcat.jni.User;
-
-import project.MemberVO;
 
 
 public class MemberDAO {
@@ -70,7 +61,7 @@ public class MemberDAO {
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "select mem_code,mem_name,mem_num ,mem_rec from d_member where mem_id = ? and mem_pwd =?";
+			String query = "select mem_code,mem_name,mem_num from d_member where mem_id = ? and mem_pwd =?";
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, input_mem_id);
@@ -83,7 +74,7 @@ public class MemberDAO {
 				vo.setMem_code(rs.getInt("mem_code"));
 				vo.setMem_name(rs.getString("mem_name"));
 				vo.setMem_num(rs.getString("mem_num"));
-				vo.setMem_rec(rs.getString("mem_rec"));
+
 				System.out.println(vo.getMem_code() + "번 고객" + vo.getMem_name() + "님이 로그인하셨습니다");
 			}
 		
@@ -104,5 +95,47 @@ public class MemberDAO {
 			}
 		}
 		return vo;
+	}
+
+
+
+//회원삭제 
+
+	public int delete(MemberVO vo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int count = 0;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			conn = DriverManager.getConnection(url, "desr", "desr");
+
+			String query = "delete from D_MEMBER where MEM_ID= ? and MEM_PWD= ?";
+			pstmt = conn.prepareStatement(query);
+
+			pstmt.setString(1, vo.getMem_id());
+			pstmt.setString(2, vo.getMem_pwd());
+
+			count = pstmt.executeUpdate();
+
+			System.out.println(count + "건 삭제");
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				System.out.println("error:" + e);
+			}
+		}
+		return count;
 	}
 }
