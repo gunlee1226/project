@@ -76,6 +76,8 @@
 										
 										<li><a href="logout.jsp">로그아웃</a></li>
 										<li><a href="ModifyForm.jsp">회원정보 수정</a></li>
+										<!-- 임시 회원정보 탈퇴기능, (회원정보 수정란에다가 넣을것) -->
+										<li><a href="delete.jsp">탈퇴</a></li>
 										<li><a href="BoardMain.jsp">자유게시판</a></li>
 											
 									</c:otherwise>

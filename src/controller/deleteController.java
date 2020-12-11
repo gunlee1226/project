@@ -12,7 +12,7 @@ import project.MemberDAO;
 import project.MemberVO;
 
 @WebServlet("/delete")
-public class delete extends HttpServlet {
+public class deleteController extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest request, HttpServletResponse response)
@@ -23,11 +23,11 @@ public class delete extends HttpServlet {
 
 		if ("delete".equals(actionName)) {
 
-		String id = request.getParameter("input_mem_id");
-		String pwd = request.getParameter("input_mem_pwd");
+		String mem_id = request.getParameter("input_mem_id");
+		String mem_pwd = request.getParameter("input_mem_pwd");
 		
 		
-		MemberVO vo = new MemberVO(id, pwd);
+		MemberVO vo = new MemberVO(mem_id, mem_pwd);
 
 		
 		MemberDAO member = new MemberDAO();
