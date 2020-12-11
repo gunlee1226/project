@@ -31,6 +31,7 @@ public class MemberDAO {
 			count = pstmt.executeUpdate();
 
 			System.out.println(count + "건 등록");
+	
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
@@ -49,6 +50,51 @@ public class MemberDAO {
 		return count;
 	}
 
+//	signup id check
+	public MemberVO idcheck(String mem_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MemberVO vo = null;
+		
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			conn = DriverManager.getConnection(url, "desr", "desr");
+
+			String query = "select mme_id from d_member where mem_id = ?";
+			pstmt = conn.prepareStatement(query);
+
+			pstmt.setString(1, mem_id);
+
+			rs = pstmt.executeQuery();
+			
+			if(rs != null && rs.isBeforeFirst()) {
+				vo = new MemberVO();
+				rs.next();
+				vo.setMem_id(rs.getString("mem_id"));
+				System.out.println(vo.getMem_id() + "현재 사용중입니다.");
+			}
+			else rs.next();
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("error: 드라이버 로딩 실패 - " + e);
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				System.out.println("error:" + e);
+			}
+		}
+		return vo;
+	}
 //	로그인
 	public MemberVO login(String input_mem_id, String input_mem_pwd) {
 		Connection conn = null;
@@ -61,7 +107,7 @@ public class MemberDAO {
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "select mem_code,mem_name,mem_num from d_member where mem_id = ? and mem_pwd =?";
+			String query = "select mem_code,mem_name,mem_num , mem_rec from d_member where mem_id = ? and mem_pwd =?";
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setString(1, input_mem_id);
@@ -143,4 +189,45 @@ public class MemberDAO {
 		}
 		return count;
 	}
+	
+//	회원정보 수정
+	public int update(String new_pwd, String new_num, String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int count = 0;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			conn = DriverManager.getConnection(url, "desr", "desr");
+
+			String query = "update d_member set mem_pwd = ?, mem_num = ? where mem_id = ?";
+			pstmt = conn.prepareStatement(query);
+
+			pstmt.setString(1, new_pwd);
+			pstmt.setString(2, new_num);
+			pstmt.setString(3, id);
+
+			count = pstmt.executeUpdate();
+
+			System.out.println(count + "건 수정");
+
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				System.out.println("error:" + e);
+			}
+		}
+		return count;
+	}
 }
+

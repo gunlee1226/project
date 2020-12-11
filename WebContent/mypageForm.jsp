@@ -22,33 +22,50 @@
 	<script src="js/plugins/plugins.js"></script>
 	<!-- Active js -->
 	<script src="js/active.js"></script>
-<title>로그인</title>
+<title>회원정보확인</title>
 </head>
 <body style="text-align: center;">
 	<header>
 			<c:import url="WEB-INF/header.jsp"></c:import>
 	</header>
-	<form action="Modify.jsp" name="loginform" method="get" id="login-form">
+	<c:choose>
+	<c:when test="${Userid == null }">
+	<%response.sendRedirect("loginform.jsp"); %>
+	
+	</c:when>
+	<c:otherwise>
+	
+	
+	<form action="mypageCheck.jsp" name= "mypageForm" method="post" id="mypageForm">
+		<h5>회원정보확인</h5>
+		<div>
+		<table width="100%">
+		<tr>
+		<td>이름</td>
+		<td><input class="logincss" type="text" value="${Username}" readonly></td>
+		</tr>
+		<tr>
+		<td>아이디</td>
+		<td><input class="logincss" type="text" value="${Userid}" readonly></td>
+		</tr>
+		<tr>
+		<td>비밀번호</td>
+		<td><input class="logincss" type="password" name="input_pwd_check" placeholder="비밀번호를 입력하세요." autofocus></td>
+		</tr>
 		
-		<div class = "container">
-		<div class = "col-md-4">
-			<input class="logincss" type="text" name="oneid" placeholder=" " 
-			<%session.getAttribute("Userid"); %>><br> 
-			<input class="logincss" type="password" name="onepwd" placeholder=" "><br>
-			<input class="logincss" type="text" name="onename" placeholder=" " autofocus><br> 
-			<input class="logincss" type="password" name="oneno" placeholder=" "><br>
-		</div>
-		</div>
+		</table>
 		
+		</div>
+	
 		<div style="margin-top: 5%">
-			<input class="loginbutton" type="submit" value="로그인 하기">
+		
+			<input class="loginbutton" type="submit" value="확인">
 		</div>
 	</form>
-	<br>
-	<div style="margin: -5px">
-		<form action="signupform.jsp" method="post">
-			<input class="loginbutton" type="submit" value="회원가입">
-		</form>
+
+</c:otherwise>
+</c:choose>
 	</div>
 </body>
+
 </html>

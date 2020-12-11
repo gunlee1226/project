@@ -47,6 +47,21 @@ public class MemberVO {
 	      this.mem_id = mem_id;
 	      this.mem_pwd = mem_pwd;
 	   }
+	
+//	idcheck
+	public MemberVO(String mem_id) {
+	      super();
+	      this.mem_id = mem_id;
+	}
+	
+//	update
+	public MemberVO(String mem_pwd, String mem_num ,String mem_id) {
+		super();
+		this.mem_pwd = mem_pwd;
+		this.mem_num = mem_num;
+		this.mem_id = mem_id;
+	}
+	   
 	/**
 	 * @param mem_code
 	 * @param mem_name
