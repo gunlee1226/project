@@ -11,14 +11,8 @@ public class MemberVO {
 	
 	
 //	생성자
-//	delete
-	public MemberVO(String mem_id, String mem_pwd) {
-		super();
-
-
-		this.mem_id = mem_id;
-		this.mem_pwd = mem_pwd;
-	}
+	
+	
 
 //signup
 	public MemberVO( String mem_name, String mem_id, String mem_pwd, String mem_num) {
@@ -39,9 +33,20 @@ public class MemberVO {
 	}
 	public MemberVO() {}
 
+//	delete
+	public MemberVO(String mem_id, String mem_pwd ,String mem_name) {
+		super();
+		this.mem_id = mem_id;
+		this.mem_pwd = mem_pwd;
+		this.mem_name = mem_name;
+	}
 	
-	
-	
+//	login X
+	public MemberVO(String mem_id, String mem_pwd) {
+	      super();
+	      this.mem_id = mem_id;
+	      this.mem_pwd = mem_pwd;
+	   }
 	/**
 	 * @param mem_code
 	 * @param mem_name

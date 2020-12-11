@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import project.MemberDAO;
 import project.MemberVO;
+
 
 @WebServlet("/delete")
 public class deleteController extends HttpServlet {
@@ -23,11 +25,11 @@ public class deleteController extends HttpServlet {
 
 		if ("delete".equals(actionName)) {
 
-		String mem_id = request.getParameter("input_mem_id");
-		String mem_pwd = request.getParameter("input_mem_pwd");
+		String mem_id_d = request.getParameter("input_mem_id");
+		String mem_pwd_d = request.getParameter("input_mem_pwd");
+		String mem_name = request.getParameter("input_mem_name");
 		
-		
-		MemberVO vo = new MemberVO(mem_id, mem_pwd);
+		MemberVO vo = new MemberVO(mem_id_d, mem_pwd_d, mem_name);
 
 		
 		MemberDAO member = new MemberDAO();
@@ -44,9 +46,6 @@ public class deleteController extends HttpServlet {
 		else
 		// forward
 		System.out.println("삭제완료");
-
-
-
 	}
 
 	else
@@ -54,5 +53,4 @@ public class deleteController extends HttpServlet {
 		request.getRequestDispatcher("/delete.jsp").forward(request, response);
 
 }
-
 }

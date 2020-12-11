@@ -67,6 +67,7 @@ public class MemberDAO {
 			pstmt.setString(1, input_mem_id);
 			pstmt.setString(2, input_mem_pwd);
 			
+
 			rs = pstmt.executeQuery();
 			if(rs != null && rs.isBeforeFirst()) {
 				vo = new MemberVO();
@@ -77,6 +78,8 @@ public class MemberDAO {
 
 				System.out.println(vo.getMem_code() + "번 고객" + vo.getMem_name() + "님이 로그인하셨습니다");
 			}
+		
+		
 		
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
