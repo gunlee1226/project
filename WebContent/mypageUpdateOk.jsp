@@ -10,6 +10,7 @@ request.setCharacterEncoding("UTF-8");
 // 세션에 저장된 id받아오기
 String id = (String)session.getAttribute("Userid");
 // 입력된 값 받아오기
+int mem_code = (int) session.getAttribute("Usercode");
 String new_pwd = request.getParameter("new_pwd");
 String new_pwd2 = request.getParameter("new_pwd2");
 String new_num = request.getParameter("new_num");
@@ -20,7 +21,7 @@ MemberDAO dao = new MemberDAO();
 
 
 if(new_pwd.equals(new_pwd2)) {
-	 dao.update(new_pwd, new_num, id);
+	 dao.update(mem_code, new_pwd, new_num, id);
 	
 %>
  <script>

@@ -191,7 +191,7 @@ public class MemberDAO {
 	}
 	
 //	회원정보 수정
-	public int update(String new_pwd, String new_num, String id) {
+	public int update(int mem_code,String new_pwd, String new_num, String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int count = 0;

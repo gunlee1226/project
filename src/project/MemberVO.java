@@ -1,6 +1,7 @@
 package project;
 
 public class MemberVO {
+	private int virtual1;
 	private int mem_code;
 	private String mem_name;
 	private String mem_id;
@@ -34,11 +35,11 @@ public class MemberVO {
 	public MemberVO() {}
 
 //	delete
-	public MemberVO(String mem_id, String mem_pwd ,String mem_name) {
+	public MemberVO(String mem_id, String mem_pwd ,int virtual1) {
 		super();
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
-		this.mem_name = mem_name;
+		this.virtual1 = virtual1;
 	}
 	
 //	login X
@@ -55,8 +56,9 @@ public class MemberVO {
 	}
 	
 //	update
-	public MemberVO(String mem_pwd, String mem_num ,String mem_id) {
+	public MemberVO(int mem_code, String mem_pwd, String mem_num ,String mem_id) {
 		super();
+		this.mem_code = mem_code;
 		this.mem_pwd = mem_pwd;
 		this.mem_num = mem_num;
 		this.mem_id = mem_id;
