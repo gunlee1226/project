@@ -37,8 +37,7 @@
 				placeholder=" 아이디를 입력하세요." autofocus><br> 
 				<input class="logincss" type="password" name="input_mem_pwd"
 				placeholder=" 비밀번호를 입력하세요."><br>
-					<input class="logincss" type="hiddn" name="virtual"
-				placeholder=" 이름 입력하세요."><br>
+					<input class="logincss" type="hidden" name="virtual1"><br>
 				 <input type="hidden"
 				name="a" value="delete" />
 		</div>

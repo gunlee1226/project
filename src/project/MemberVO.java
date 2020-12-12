@@ -3,6 +3,7 @@ package project;
 public class MemberVO {
 	private int virtual1;
 	private int mem_code;
+	private String virtual;
 	private String mem_name;
 	private String mem_id;
 	private String mem_pwd;
@@ -35,14 +36,15 @@ public class MemberVO {
 	public MemberVO() {}
 
 //	delete
-	public MemberVO(String mem_id, String mem_pwd ,int virtual1) {
+	public MemberVO(String mem_id, String mem_pwd ,String virtual) {
 		super();
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
-		this.virtual1 = virtual1;
+		this.virtual = virtual;
 	}
 	
-//	login X
+
+	//	login X
 	public MemberVO(String mem_id, String mem_pwd) {
 	      super();
 	      this.mem_id = mem_id;
@@ -84,6 +86,19 @@ public class MemberVO {
 
 	}
 	//게터세터
+	public String getVirtual() {
+		return virtual;
+	}
+	public void setVirtual(String virtual) {
+		this.virtual = virtual;
+	}
+	public int getVirtual1() {
+		return virtual1;
+	}
+	
+	public void setVirtual1(int virtual1) {
+		this.virtual1 = virtual1;
+	}
 	public String getMem_rec() {
 		return mem_rec;
 	}

@@ -25,15 +25,14 @@ public class deleteController extends HttpServlet {
 
 		if ("delete".equals(actionName)) {
 
-		String mem_id_d = request.getParameter("input_mem_id");
-		String mem_pwd_d = request.getParameter("input_mem_pwd");
+		String mem_id = request.getParameter("input_mem_id");
+		String mem_pwd = request.getParameter("input_mem_pwd");
 		
-//		MemberVo에서 겹치지않게 임의의 값 int를 설정.
-		String virtual = request.getParameter("virtual");
+//		MemberVo에서 겹치지않게 임의의 값 virtual를 설정.
+		String virtual = request.getParameter("virtual1");
 		
-		int virtual1 = Integer.parseInt(virtual);
 		
-		MemberVO vo = new MemberVO(mem_id_d, mem_pwd_d, virtual1);
+		MemberVO vo = new MemberVO(mem_id, mem_pwd, virtual);
 
 		
 		MemberDAO member = new MemberDAO();
