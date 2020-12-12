@@ -30,11 +30,17 @@
 	<header>
 		<c:import url="/WEB-INF/header.jsp"></c:import>
 	</header>
+	<c:choose>
+		<c:when test="${Userid == null }">
+	<%response.sendRedirect("loginform.jsp"); %>
+	
+	</c:when>
+	
+	<c:otherwise>
 	<form action="delete" name="loginform" method="get" id="login-form">
 
 		<div>
-			<input class="logincss" type="text" name="input_mem_id"
-				placeholder=" 아이디를 입력하세요." autofocus><br> 
+			<input class="logincss" type="text" name="input_mem_id" value ="${Userid}" autofocus><br> 
 				<input class="logincss" type="password" name="input_mem_pwd"
 				placeholder=" 비밀번호를 입력하세요."><br>
 					<input class="logincss" type="hidden" name="virtual1"><br>
@@ -52,9 +58,10 @@
 		<form action="signupform.jsp" method="post">
 			<input class="loginbutton" type="submit" value="회원가입">
 		</form>
-
+	
 	</div>
-
+</c:otherwise>
+</c:choose>
 
 	<c:if test="${fa == null}">
 
