@@ -1,15 +1,12 @@
 package project;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import sun.awt.CharsetString;
 
 public class BoardDAO {
 
@@ -192,11 +189,11 @@ public class BoardDAO {
    }
 
 
-public void getBoard(int no) {
+	public BoardVO getBoard(int no) {
     Connection conn = null;
     PreparedStatement pstmt = null;
     ResultSet rs = null;
-    BoardVO vo = null;
+	BoardVO vo = null;
     int count = 0 ;
     
     try {
@@ -205,11 +202,11 @@ public void getBoard(int no) {
        String url = "jdbc:oracle:thin:@localhost:1521:xe";
        conn = DriverManager.getConnection(url, "desr", "desr");
        
-       String query ="SELECT * FROM  D_MEMBER;\r\n"
-       		+ "select b.b_no, b.b_title, b.b_contents, b.b_view, b.b_date, b.MEM_code, d.MEM_NAME\r\n"
-       		+ "from board b, d_member d \r\n"
-       		+ "where b.mem_code = d.mem_code \r\n"
-       		+ "and b.b_no = ?";
+		String query = "\r\n"
+				+ "select b.b_no, b.b_title, b.b_contents, b.b_view, b.b_date, b.MEM_code, d.MEM_NAME\r\n"
+				+ "from board b, d_member d \r\n"
+				+ "where b.mem_code = d.mem_code \r\n"
+				+ "and b.b_no = ?";
        pstmt = conn.prepareStatement(query);  
        
        pstmt.setInt(1, no);
@@ -217,7 +214,7 @@ public void getBoard(int no) {
        rs = pstmt.executeQuery();
        while(rs.next()) {
     	   String b_title = rs.getString("b_title");
-    	   String b_contents = rs.getString("bcontents");
+			String b_contents = rs.getString("b_contents");
     	   int b_view = rs.getInt("b_view");
     	   String b_date = rs.getString("b_date");
     	   int mem_code = rs.getInt("mem_code");
@@ -239,5 +236,6 @@ public void getBoard(int no) {
        }
     }
  
+	return vo;
  }
 }

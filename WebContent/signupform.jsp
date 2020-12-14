@@ -52,6 +52,7 @@
 	</div>
 </body>
 </html>
+
 <script>
 $(function() {
 	$("#alert-success").hide();
@@ -73,4 +74,7 @@ $(function() {
 			}
 		}
 	})})
+	
+
+	
 </script>
