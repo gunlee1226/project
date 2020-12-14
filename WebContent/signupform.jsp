@@ -30,14 +30,18 @@
 		<div>
 			<input class="logincss" type="text" name="mem_name" autofocus
 				placeholder=" 이름을 입력하세요."><br> 
-			<input class="logincss" type="text" name="mem_id" placeholder=" 아이디를 입력하세요.">
-			<input class="logincss" type="password" name="mem_pwd" id="input1" placeholder=" 비밀번호.">
+			<input class="logincss" type="text" name="mem_id" id = "mem_id" maxlegnth = "12" placeholder=" 아이디를 입력하세요.">
+				<div class="alert alert-success" id = "alert-success1" >id에 공백없이 영문 4~12자를 입력해주세요</div>
+				<div class="alert alert-danger" id = "alert-danger1">id를 다시입력하세요 영문 4~12자</div>
+				<div class="alert alert-success" id = "alert-success2" >영문 4~12자를 입력해주세요</div>
 			
-			<input class="logincss" type="password" name="mem_pwd1" id="input2" placeholder=" 비밀번호확인.">
+			<input class="logincss" type="password" name="mem_pwd" id="input1" maxlegnth = "15"  placeholder=" 비밀번호.">
+			
+			<input class="logincss" type="password" name="mem_pwd1" id="input2" maxlegnth = "15"  placeholder=" 비밀번호확인.">
 				<div class="alert alert-success" id = "alert-success">비밀번호가 일치합니다</div>
 				<div class="alert alert-danger" id = "alert-danger">비밀번호가 일치하지 않습니다</div>
 				<p>'-'를 제외한 숫자만 입력하세요!</p>
-			<input class="logincss" type="text" name="mem_num" id = "phnum" placeholder=" 전화번호.">
+			<input class="logincss" type="text" name="mem_num" id = "phnum" maxlegnth = "11" placeholder=" 전화번호.">
 			<div class="alert alert-warning" id = "alert-warning">휴대푠 번호를 정확히 입력해 주세요</div>
 		</div>
 		<div style="margin-top: 5%">
@@ -74,7 +78,7 @@ $(function() {
 				
 			}
 		}
-	})})
+	})});
 	
 	
 	$(function func() {
@@ -87,6 +91,36 @@ $(function() {
 		}
 			else {
 				$("#alert-warning").hide();
-			}})})
+			}
+			})});
+			
+	$(function check() {
+		$("#alert-success1").hide();
+		$("#alert-danger1").hide();
+		var regexp = /^[a-zA-Z0-0]{4,12}$/;
+		var n_regexp = /^[가-힣]{2,15}$/;
+		
+		$("#mem_id").keyup(function check() {
+		var c_id = $("#mem_id").val();
+		
+		if(c_id == "" || c_id == " ") {
+			$("#alert-success1").show();
+			$("#alert-danger1").hide();
+			$("#alert-success2").hide();
+			return false;
+			}
+		else if (!regexp.test(c_id)) {
+			$("#alert-success1").hide();
+			$("#alert-danger1").show();
+			$("#alert-success2").hide();
+		}
+		else {
+			$("#alert-success1").hide();
+			$("#alert-danger1").hide();
+			$("#alert-success2").show();
+		}
+		})
+		})
+	
 	
 </script>
