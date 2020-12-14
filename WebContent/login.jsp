@@ -13,7 +13,7 @@
 
 	MemberVO vo = dao.login(input_mem_id, input_mem_pwd);
 	
-	if(vo == null) {
+	if(vo.getMem_name().equals(null)) {
 		%>
 <script>alert("비밀번호가 일치하지 않습니다.")	
 	location.href = "loginform.jsp"
