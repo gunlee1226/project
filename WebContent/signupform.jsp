@@ -28,12 +28,18 @@
 	<!-- 회원가입 -->
 	<form action="signup.jsp" method="post">
 		<div>
+			<!-- 이름 입력 부분 -->
 			<input class="logincss" type="text" name="mem_name" autofocus
 				placeholder=" 이름을 입력하세요."><br> 
+				<div class="alert alert-success" id = "alert-success_n" >올바르게 입력되었습니다</div>
+				<div class="alert alert-danger" id = "alert-danger_n">공백 없이 입력해주세요</div>
+				<div class="alert alert-warning" id = "alert-warning-n" >한글 2~10자를 입력해주세요</div>
+				
+				<!-- 아이디 입력 부분 -->
 			<input class="logincss" type="text" name="mem_id" id = "mem_id" maxlegnth = "12" placeholder=" 아이디를 입력하세요.">
-				<div class="alert alert-success" id = "alert-success1" >id에 공백없이 영문 4~12자를 입력해주세요</div>
-				<div class="alert alert-danger" id = "alert-danger1">id를 다시입력하세요 영문 4~12자</div>
-				<div class="alert alert-success" id = "alert-success2" >영문 4~12자를 입력해주세요</div>
+				<div class="alert alert-success" id = "alert-success_id1" >id에 공백없이 영문 4~12자를 입력해주세요</div>
+				<div class="alert alert-danger" id = "alert-danger_id">id를 다시입력하세요 영문 4~12자</div>
+				<div class="alert alert-warning" id = "alert-success_id2" >영문 4~12자를 입력해주세요</div>
 			
 			<input class="logincss" type="password" name="mem_pwd" id="input1" maxlegnth = "15"  placeholder=" 비밀번호.">
 			
@@ -95,8 +101,15 @@ $(function() {
 			})});
 			
 	$(function check() {
-		$("#alert-success1").hide();
-		$("#alert-danger1").hide();
+// input name 초기값 hide
+		$("#alert-success_n").hide();
+		$("#alert-danger_n").hide();
+		$("#alert-warning-n").hide();
+// input id 초기값 hide		
+		$("#alert-success_id1").hide();
+		$("#alert-danger_id").hide();
+		$("#alert-success_id2").hide();
+		
 		var regexp = /^[a-zA-Z0-0]{4,12}$/;
 		var n_regexp = /^[가-힣]{2,15}$/;
 		
@@ -104,23 +117,23 @@ $(function() {
 		var c_id = $("#mem_id").val();
 		
 		if(c_id == "" || c_id == " ") {
-			$("#alert-success1").show();
-			$("#alert-danger1").hide();
-			$("#alert-success2").hide();
+			$("#alert-success_id1").show();
+			$("#alert-danger_id").hide();
+			$("#alert-success_id2").hide();
 			return false;
 			}
 		else if (!regexp.test(c_id)) {
-			$("#alert-success1").hide();
-			$("#alert-danger1").show();
-			$("#alert-success2").hide();
+			$("#alert-success_id1").hide();
+			$("#alert-danger_id").show();
+			$("#alert-success_id2").hide();
 		}
 		else {
-			$("#alert-success1").hide();
-			$("#alert-danger1").hide();
-			$("#alert-success2").show();
+			$("#alert-success_id1").hide();
+			$("#alert-danger_id").hide();
+			$("#alert-success_id2").show();
 		}
 		})
-		})
+		});
 	
 	
 </script>
