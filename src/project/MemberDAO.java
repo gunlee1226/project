@@ -171,7 +171,7 @@ public class MemberDAO {
 			count = pstmt.executeUpdate();
 
 			System.out.println(count + "건 삭제");
-
+//int type virtual1 값을 주면서 생시는 에러 무시
 		}catch (NumberFormatException e) {
 			System.out.println("error:" + e);
 		}
