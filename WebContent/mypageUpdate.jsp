@@ -48,18 +48,24 @@
 		<td>비밀번호 확인</td>
 		<td><input class="logincss" type="password" name="new_pwd2" id="pwCheck" placeholder="비밀번호를 입력하세요."></td>
 		</tr>
-		<tr>
 		
-		<th colspan="2">
+		<tr>
+		<th colspan = "2">
 		<div class="alert alert-success" id = "alert-success">비밀번호가 일치합니다</div>
 		<div class="alert alert-danger" id = "alert-danger">비밀번호가 일치하지 않습니다</div>
 		</th>
 		</tr>
+		
 		<tr>
 		<td>전화번호</td>
-		<td><input class="logincss" type="text" name="new_num" value="${Usernum}"></td>
+		<td>	<input class="logincss" type="text" name="new_num" id = "phnum"  value="${Usernum}"></td>
+			
 		</tr>
-	
+		<tr>
+		<th colspan = "2">
+		<div class="alert alert-warning" id = "alert-warning">휴대푠 번호를 정확히 입력해 주세요</div>
+		</th>
+		</tr>
 		</table>
 			
 		</div>
@@ -101,6 +107,18 @@ $(function() {
 			}
 		}
 	})})
+	
+	$(function func() {
+		$("#alert-warning").hide();
+		$("#phnum").keyup(function func() {
+			var pnum = $("#phnum").val();
+			if(isNaN(pnum) == true) {
+			$("#alert-warning").show();
+			
+		}
+			else {
+				$("#alert-warning").hide();
+			}})})
 </script>
 
 

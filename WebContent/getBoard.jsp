@@ -9,8 +9,11 @@
 
 <%
 	request.setCharacterEncoding("UTF-8");
-BoardDAO dao = new BoardDAO();
-List<BoardVO> list = dao.getList();
+	BoardDAO dao = new BoardDAO();
+	int no = Integer.parseInt(request.getParameter("no"));
+	
+	BoardVO vo = dao.getBoard(no);
+		
 %>
 
 
@@ -25,7 +28,9 @@ List<BoardVO> list = dao.getList();
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="img/core-img/favicon.ico">
-<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet" href="css/style.css?" type="text/css">
+
+
 
 <!-- ##### All Javascript Script ##### -->
 <!-- jQuery-2.2.4 js -->
@@ -52,43 +57,36 @@ List<BoardVO> list = dao.getList();
 	<!-- 메인 내용 -->
 	<div class="container p-3 my-3">
 
-
-		<!--메뉴 고르기 & 최근 레시피 기능  -->
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th scope="col">번호</th>
-							<th scope="col">작성자</th>
-							<th scope="col">제목</th>
-							<th scope="col">날짜</th>
+				<table class="table">
+					<tr>
+						<th>제목</th>
 
-							<th scope="col">조회수</th>
-							<th scope="col">댓글수</th>
-						</tr>
-					</thead>
+						<td><%=vo.getB_title()%></td>
+					</tr>
+					<tr>
+						<th>날짜</th>
+						<td><%=vo.getB_date() %></td>
 
-					<tbody>
+					</tr>
+					<tr>
+						<th>작성자</th>
+						<td><%=vo.getMem_name()%></td>
+					</tr>
 
-						<%
-							for (BoardVO vo : list) {
-						%>
-						<tr>
-							<td><%=vo.getB_no()%></td>
-							<td><%=vo.getMem_name()%></td>
-							<td><a href="getBoard.jsp?no=<%=vo.getB_no()%>"><%=vo.getB_title()%></a></td>
-							<td><%=vo.getB_date()%></td>
-							<td><%=vo.getB_view()%></td>
-							<td><%=vo.getB_commview()%></td>
+					<tr>
+						<th>조회수</th>
+						<td></td>
 
-						</tr>
-						<%
-							}
-						%>
-					</tbody>
+					</tr>
 
+					<tr>
+						<th>내용<th>
+						<td><%=vo.getB_contents()%></td>
+					</tr>
 				</table>
+
 
 			</div>
 

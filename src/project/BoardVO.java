@@ -14,6 +14,7 @@ public class BoardVO {
    private String b_comment;
    private String mem_name;
    private int mem_code;
+   
 
 
    public BoardVO() {}

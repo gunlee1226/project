@@ -28,10 +28,9 @@ if(new_pwd.equals(new_pwd2)) {
  
  alert("정상적으로 변경되었습니다");
 
- location.href = "Main.jsp";
+ location.href = "logout.jsp";
  </script>
-	session.invalidate();
-	response.sendRedirect("Main.jsp");
+	
 <%	
 	
 
