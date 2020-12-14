@@ -83,7 +83,10 @@ $(function() {
 			var pnum = $("#phnum").val();
 			if(isNaN(pnum) == true) {
 			$("#alert-warning").show();
-			$("#submit").removeAttr("disabled");
-		}})})
+			
+		}
+			else {
+				$("#alert-warning").hide();
+			}})})
 	
 </script>
