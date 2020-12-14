@@ -27,12 +27,12 @@ public class deleteController extends HttpServlet {
 
 		String mem_id = request.getParameter("input_mem_id");
 		String mem_pwd = request.getParameter("input_mem_pwd");
-		
+		int vitrual1 = Integer.parseInt(request.getParameter("virtual1"));
 //		MemberVo에서 겹치지않게 임의의 값 virtual를 설정.
-		String virtual = request.getParameter("virtual1");
+	
 		
 		
-		MemberVO vo = new MemberVO(mem_id, mem_pwd, virtual);
+		MemberVO vo = new MemberVO(mem_id, mem_pwd, vitrual1);
 
 		
 		MemberDAO member = new MemberDAO();

@@ -30,9 +30,11 @@ if(new_pwd.equals(new_pwd2)) {
 
  location.href = "Main.jsp";
  </script>
-
+	session.invalidate();
+	response.sendRedirect("Main.jsp");
 <%	
 	
+
 } else {
 %>
 <script>

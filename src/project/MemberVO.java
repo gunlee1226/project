@@ -36,11 +36,11 @@ public class MemberVO {
 	public MemberVO() {}
 
 //	delete
-	public MemberVO(String mem_id, String mem_pwd ,String virtual) {
+	public MemberVO(String mem_id, String mem_pwd ,int virtual1) {
 		super();
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
-		this.virtual = virtual;
+		this.virtual1 = virtual1;
 	}
 	
 
@@ -77,11 +77,11 @@ public class MemberVO {
 //	로그인시 d_member 의 모든 정보를 vo에 넣어줍니다.
 	public MemberVO(int mem_code, String mem_name, String mem_id, String mem_pwd, String mem_num, String mem_rec) {
 		super();
+		this.mem_code = mem_code;
 		this.mem_name = mem_name;
 		this.mem_id = mem_id;
 		this.mem_pwd = mem_pwd;
-		this.mem_num = mem_num;
-		this.mem_code = mem_code;
+		this.mem_num = mem_num;	
 		this.mem_rec = mem_rec;
 
 	}

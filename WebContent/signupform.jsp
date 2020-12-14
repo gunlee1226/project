@@ -36,10 +36,12 @@
 			<input class="logincss" type="password" name="mem_pwd1" id="input2" placeholder=" 비밀번호확인.">
 				<div class="alert alert-success" id = "alert-success">비밀번호가 일치합니다</div>
 				<div class="alert alert-danger" id = "alert-danger">비밀번호가 일치하지 않습니다</div>
-			<input class="logincss" type="text" name="mem_num" placeholder=" 전화번호.">
+				<p>'-'를 제외한 숫자만 입력하세요!</p>
+			<input class="logincss" type="text" name="mem_num" id = "phnum" placeholder=" 전화번호.">
+			<div class="alert alert-warning" id = "alert-warning">휴대푠 번호를 정확히 입력해 주세요</div>
 		</div>
 		<div style="margin-top: 5%">
-			<input class="loginbutton" type="submit" value="회원가입 하기">
+			<input class="loginbutton" type="submit" intput ="submit" value="회원가입 하기">
 		</div>
 	</form>
 	<br>
@@ -73,4 +75,15 @@ $(function() {
 			}
 		}
 	})})
+	
+	
+	$(function func() {
+		$("#alert-warning").hide();
+		$("#phnum").keyup(function func() {
+			var pnum = $("#phnum").val();
+			if(isNaN(pnum) == true) {
+			$("#alert-warning").show();
+			$("#submit").removeAttr("disabled");
+		}})})
+	
 </script>

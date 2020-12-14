@@ -9,6 +9,7 @@
 	String mem_pwd = request.getParameter("mem_pwd");
 	String mem_num = request.getParameter("mem_num");
 	
+
 	
 	MemberDAO dao = new MemberDAO();
 	MemberVO vo = dao.idcheck(mem_id); 
