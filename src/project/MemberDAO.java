@@ -76,7 +76,9 @@ public class MemberDAO {
 				vo.setMem_num(rs.getString("mem_num"));
 
 				System.out.println(vo.getMem_code() + "번 고객" + vo.getMem_name() + "님이 로그인하셨습니다");
-			}
+			} else
+
+				vo = null;
 		
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
@@ -94,6 +96,8 @@ public class MemberDAO {
 				System.out.println("error:" + e);
 			}
 		}
+
+			
 		return vo;
 	}
 
