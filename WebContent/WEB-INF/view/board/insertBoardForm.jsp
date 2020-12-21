@@ -22,7 +22,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/style.css" type="/text/css">
+<link rel="icon" href="/img/core-img/favicon.ico">
+<link rel="stylesheet" href="/css/style.css?" type="text/css">
+
+
+
 <!-- ##### All Javascript Script ##### -->
 <!-- jQuery-2.2.4 js -->
 <script src="js/jquery/jquery-2.2.4.min.js"></script>
@@ -35,32 +39,20 @@
 <!-- Active js -->
 <script src="js/active.js"></script>
 
+
+
 <title>오늘 뭐 먹지 ?</title>
 </head>
 
 
 
 <body style="font-family: myfont";>
-	<!-- 네비 바   (헤더) -->
-	<nav class="navbar navbar-expand-sm bg-light navbar-light">
-		<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			<a class="navbar-brand" href="main.html">
-				<div class="firstlogo" style="width: 100px;"></div>
-			</a> <input id="myInput" type="text" placeholder="검색하기"
-				style="width: 80%;" autofocus />
-			<!-- 검색된 레시피로 이동 -->
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="signup.jsp">회원가입</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a>
-				</li>
-				<li class="nav-item"><a class="nav-link" href="BoardMain.jsp">자유게시판</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
 	<!-- 로고 부분  (헤더) -->
 	<c:import url="/WEB-INF/header.jsp"></c:import>
+	<!-- 네비 바   (헤더) -->
+	
+
+
 	<!-- 메인 내용 -->
 
 	<div class="container p-3 my-3">
