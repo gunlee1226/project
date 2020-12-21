@@ -5,14 +5,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 public class RecipesDAO {
-	public RecipesVO getRecipes(String title, String img) {
+	public List<RecipesVO> getRecipes() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		RecipesVO vo = null;
-		int count = 0;
+		List<RecipesVO> rlist = new ArrayList<RecipesVO>();
+	
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -24,13 +28,13 @@ public class RecipesDAO {
 			pstmt = conn.prepareStatement(query);
 
 			rs = pstmt.executeQuery();
-			vo = new RecipesVO();
 			while (rs.next()) {
 				
 				String des_name = rs.getString("des_name");
 				String des_img = rs.getString("des_img");
 
-				vo = new RecipesVO(des_name, des_img);
+				RecipesVO rvo = new RecipesVO(des_name, des_img);
+				rlist.add(rvo);
 
 			}
 		} catch (ClassNotFoundException e) {
@@ -47,7 +51,7 @@ public class RecipesDAO {
 				System.out.println("error:" + e);
 			}
 		}
-		return vo;
+		return rlist;
 
 	}
 }

@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="project.RecipesDAO"%>
+<%@ page import="project.RecipesVO"%>
+<%@ page import="java.util.List"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+RecipesDAO rdao = new RecipesDAO();
+List<RecipesVO> rlist = rdao.getRecipes();
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -169,12 +178,18 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<!-- Single Post Catagory -->
+				<%
+				for (RecipesVO rvo : rlist) {
+				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
-						<img src="img/bg-img/4.jpg" alt="">
+						<img src="<%=rvo.getDes_img() %>" alt="">
 					</div>
-					<p>맛남의광장에서 나온 백종원의 파프리카무침 2가지 방법!</p>
+					<p> <%=rvo.getDes_name() %></p>
 				</div>
+				<%
+				}
+				%>
 
 				<!-- Single Post Catagory -->
 				<div class="col-12 col-md-6 col-lg-4">

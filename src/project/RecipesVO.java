@@ -14,19 +14,19 @@ public class RecipesVO {
 	
 	
 	
+	public RecipesVO() {
+		
+}
 	
 	
-	
-//	이미지.
+//	이미지.타이틀
 public RecipesVO(String des_name, String des_img) {
 		super();
 		this.des_name = des_name;
 		this.des_img = des_img;
 	}
 
-	public RecipesVO() {
-	
-}
+
 
 	// getter & setter
 	public int getDes_code() {
