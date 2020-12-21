@@ -8,11 +8,14 @@
 
 
 <%
-	request.setCharacterEncoding("UTF-8");
-BoardDAO dao = new BoardDAO();
-List<BoardVO> list = dao.getList();
-%>
+request.setCharacterEncoding("UTF-8");
+int no = Integer.parseInt(request.getParameter("no"));
 
+BoardDAO dao = new BoardDAO();
+BoardVO vo = dao.getBoard(no);
+
+System.out.println("게시판 넘버:"+no);
+%>
 
 
 <!DOCTYPE html>
@@ -40,7 +43,7 @@ List<BoardVO> list = dao.getList();
 <script src="js/active.js"></script>
 
 
-<title>자 유 게 시 판</title>
+<title>글상세</title>
 </head>
 
 
@@ -50,66 +53,47 @@ List<BoardVO> list = dao.getList();
 	<c:import url="/WEB-INF/header.jsp"></c:import>
 
 	<!-- 메인 내용 -->
-	<div class="container p-3 my-3">
-
-
+	<div class="container p-3 my-3">	
+	<form action="boardUpdate" method="post">
+	
 		<!--메뉴 고르기 & 최근 레시피 기능  -->
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table table-hover">
-					<thead>
+				<input type="hidden" name="no" value="<%= no %>">
+					<table class="table">
 						<tr>
-							<th scope="col">번호</th>
-							<th scope="col">작성자</th>
-							<th scope="col">제목</th>
-							<th scope="col">날짜</th>
-
-							<th scope="col">조회수</th>
-							<th scope="col">댓글수</th>
+							<th>제목</th>
+							<td><input type="text" name="update_title" value="<%=vo.getB_title()%>"></td>
 						</tr>
-					</thead>
-
-					<tbody>
-
-						<%
-							for (BoardVO vo : list) {
-						%>
 						<tr>
-							<td><%=vo.getB_no()%></td>
-							<td><%=vo.getMem_name()%></td>
-							<td><a href="getBoard.jsp?no=<%=vo.getB_no()%>"><%=vo.getB_title()%></a></td>
+							<th>날짜</th>
 							<td><%=vo.getB_date()%></td>
-							<td><%=vo.getB_view()%></td>
-							<td><%=vo.getB_commview()%></td>
-
 						</tr>
-						<%
-							}
-						%>
-					</tbody>
-
-				</table>
-
+						<tr>
+							<th>작성자</th>
+							<td><%=vo.getMem_name()%></td>
+						</tr>
+						<tr>
+							<th>조회수</th>
+							<td></td>
+						</tr>
+						<tr>
+							<th>내용</th>
+							<td><textarea name="update_content" cols="50%" rows="10"><%=vo.getB_contents()%></textarea></td>
+						</tr>
+					</table>
+				
 			</div>
-
 		</div>
-
-
-
+		<!-- 버튼 -->
 		<div class="row">
 			<div class="col-md-12" style="text-align: right;">
-
-				<%
-				
-				%>
-				<input type="button" value="글쓰기" onclick="Insertform();" id="write"
-					style="width: 5%">
-
+				<input type="submit" value="수정하기">
 			</div>
 		</div>
-
+		
+	</form>
 	</div>
-
 	<div class="footer text-center" style="margin-top: auto">
 		<p>문의사항 : gunlee1226@gmail.com</p>
 		<P>주소 : 서울 특별시 구로구 디지털로 29 대륭포스트타워 3차</P>
@@ -118,18 +102,4 @@ List<BoardVO> list = dao.getList();
 </body>
 
 </html>
-<script>
-function Insertform() {
-	var Userid = '<%=(String)session.getAttribute("Userid") %>';
-	 if(Userid == "null" ) {
-		 alert("로그인 후 이용가능합니다.");
-	location.href = 'loginform.jsp';
-	 }
-	 
-	 else {
-		
-		 location.href = 'InsertForm.jsp';
-	 }
-	}
 
-</script>

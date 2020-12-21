@@ -16,24 +16,24 @@
 <!DOCTYPE html>
 <html lang="ko">
 <style>
-@import url("css/recs.css");
+@import url("/css/recs.css");
 </style>
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/style.css" type="text/css">
-	<!-- ##### All Javascript Script ##### -->
-	<!-- jQuery-2.2.4 js -->
-	<script src="js/jquery/jquery-2.2.4.min.js"></script>
-	<!-- Popper js -->
-	<script src="js/bootstrap/popper.min.js"></script>
-	<!-- Bootstrap js -->
-	<script src="js/bootstrap/bootstrap.min.js"></script>
-	<!-- All Plugins js -->
-	<script src="js/plugins/plugins.js"></script>
-	<!-- Active js -->
-	<script src="js/active.js"></script>
+<link rel="stylesheet" href="/css/style.css" type="/text/css">
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
 
 <title>오늘 뭐 먹지 ?</title>
 </head>
@@ -62,41 +62,40 @@
 	<!-- 로고 부분  (헤더) -->
 	<c:import url="/WEB-INF/header.jsp"></c:import>
 	<!-- 메인 내용 -->
-		
+
 	<div class="container p-3 my-3">
 		<!-- 검색 하기 기능 -->
 
 		<!--메뉴 고르기 & 최근 레시피 기능  -->
 		<div class="row">
 			<div class="col-md-12">
-		
-				<form action="InsertBoard.jsp?name=multipart" method="post" />
-				<input type = "hidden" name ="a" value = "write">
-				<table class="table table-hover" style="text-align: center;">
 
-					<thead>
-						<tr>
-							<td><input type="text" placeholder="제목을 입력해주세요."
-								name="inp_title" ></td>
-						</tr>
-					</thead>
-					<tbody>
-						<td><textarea aria-setsize="2000" cols = "50" rows = "10" placeholder="내용을 작성하세요."
-								name="inp_contetns" ></textarea></td>
+				<form action="insertBoard" method="post">
+					<table class="table table-hover" style="text-align: center;">
 
-					</tbody>
+						<thead>
+							<tr>
+								<td><input type="text" placeholder="제목을 입력해주세요."
+									name="inp_title"></td>
+							</tr>
+						</thead>
+						<tbody>
+							<td><textarea aria-setsize="2000" cols="50" rows="10"
+									placeholder="내용을 작성하세요." name="inp_contetns"></textarea></td>
+
+						</tbody>
 
 
-				</table>
+					</table>
+					<input type="submit" value="완료">
+				</form>
 			</div>
 
 
 		</div>
 
-		<div style="text-align: right;">
-			<input type="submit" value="완료">
-		</div>
-		</form>
+		<div style="text-align: right;"></div>
+
 	</div>
 
 	<div class="footer text-center" style="margin-top: auto">
@@ -107,6 +106,3 @@
 </body>
 
 </html>
-<script>
-
-</script>

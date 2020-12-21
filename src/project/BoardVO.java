@@ -1,5 +1,8 @@
 package project;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BoardVO {
 
    private int b_no;
@@ -11,7 +14,6 @@ public class BoardVO {
    private String b_comment;
    private String mem_name;
    private int mem_code;
-   
 
 
    public BoardVO() {}

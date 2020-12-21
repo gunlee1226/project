@@ -190,22 +190,6 @@ List<RecipesVO> rlist = rdao.getRecipes();
 				<%
 				}
 				%>
-
-				<!-- Single Post Catagory -->
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-post-catagory mb-30">
-						<img src="img/bg-img/5.jpg" alt="">
-					</div>
-					<p>로제크림치킨 l 귀차니즘이 폭팔하는 오늘같은 날! 편의점 재료로 떼우쟈!</p>
-				</div>
-
-				<!-- Single Post Catagory -->
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-post-catagory mb-30">
-						<img src="img/bg-img/6.jpg" alt="">
-					</div>
-					<p>로제크림치킨 l 귀차니즘이 폭팔하는 오늘같은 날! 편의점 재료로 떼우쟈!</p>
-				</div>
 			</div>
 		</div>
 	</div>

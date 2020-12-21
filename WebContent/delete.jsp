@@ -32,39 +32,37 @@
 	</header>
 	<c:choose>
 		<c:when test="${Userid == null }">
-			<%
-				response.sendRedirect("loginform.jsp");
-			%>
-
-		</c:when>
-
-		<c:otherwise>
-
-			<form action="delete" name="loginform" method="get" id="login-form">
-				<h5>회원 탈퇴</h5>
-				<div>
-					<input class="logincss" type="text" name="input_mem_id"
-						value="${Userid}" readonly><br> <input
-						class="logincss" type="password" name="input_mem_pwd"
-						placeholder=" 비밀번호를 입력하세요." autofocus><br> <input
-						class="logincss" type="hidden" name="virtual1"><br> <input
-						type="hidden" name="a" value="delete" />
-				</div>
+	<%response.sendRedirect("loginform.jsp"); %>
+	
+	</c:when>
+	
+	<c:otherwise>
+	
+	<form action="delete" name="loginform" method="get" id="login-form">
+<h5> 회원 탈퇴</h5>
+		<div>
+			<input class="logincss" type="text" name="input_mem_id" value ="${Userid}" readonly><br> 
+				<input class="logincss" type="password" name="input_mem_pwd"
+				placeholder=" 비밀번호를 입력하세요." autofocus><br>
+					<input class="logincss" type="hidden" name="virtual1"><br>
+				 <input type="hidden"
+				name="a" value="delete" />
+		</div>
 
 
-				<div style="margin-top: 5%">
-					<input class="loginbutton" type="submit" value="삭제하기">
-				</div>
-			</form>
-			<br>
-			<div style="margin: -5px">
-				<form action="signupform.jsp" method="post">
-					<input class="loginbutton" type="submit" value="회원가입">
-				</form>
-
-			</div>
-		</c:otherwise>
-	</c:choose>
+		<div style="margin-top: 5%">
+			<input class="loginbutton" type="submit" value="삭제하기">
+		</div>
+	</form>
+	<br>
+	<div style="margin: -5px">
+		<form action="signupform.jsp" method="post">
+			<input class="loginbutton" type="submit" value="회원가입">
+		</form>
+	
+	</div>
+</c:otherwise>
+</c:choose>
 
 	<c:if test="${fa == null}">
 

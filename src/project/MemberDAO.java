@@ -64,7 +64,7 @@ public class MemberDAO {
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "select mem_id from d_member where mem_id = ?";
+			String query = "select mme_id from d_member where mem_id = ?";
 			pstmt = conn.prepareStatement(query);
 
 			pstmt.setString(1, mem_id);
@@ -123,7 +123,7 @@ public class MemberDAO {
 				vo.setMem_num(rs.getString("mem_num"));
 				vo.setMem_rec(rs.getString("mem_rec"));
 
-				System.out.println(vo.getMem_code() + "번 고객" + vo.getMem_name() + "님이 로그인하셨습니다" + vo.getMem_num());
+				System.out.println(vo.getMem_code() + "번 고객" + vo.getMem_name() + "님이 로그인하셨습니다");
 			}
 			else {
 				vo = null;
@@ -171,11 +171,8 @@ public class MemberDAO {
 			count = pstmt.executeUpdate();
 
 			System.out.println(count + "건 삭제");
-//int type virtual1 값을 주면서 생시는 에러 무시
-		}catch (NumberFormatException e) {
-			System.out.println("error:" + e);
-		}
-		catch (SQLException e) {
+
+		} catch (SQLException e) {
 			System.out.println("error:" + e);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
