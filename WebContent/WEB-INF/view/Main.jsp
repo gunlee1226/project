@@ -1,15 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import="project.RecipesDAO"%>
-<%@ page import="project.RecipesVO"%>
-<%@ page import="java.util.List"%>
-<%
-	request.setCharacterEncoding("UTF-8");
-RecipesDAO rdao = new RecipesDAO();
-List<RecipesVO> rlist = rdao.getRecipes();
-%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +11,17 @@ List<RecipesVO> rlist = rdao.getRecipes();
 <title>밥먹고 뭐 먹지?</title>
 <link rel="icon" href="img/core-img/favicon.ico">
 <link rel="stylesheet" href="css/style.css" type="text/css">
-	<!-- ##### All Javascript Script ##### -->
-	<!-- jQuery-2.2.4 js -->
-	<script src="js/jquery/jquery-2.2.4.min.js"></script>
-	<!-- Popper js -->
-	<script src="js/bootstrap/popper.min.js"></script>
-	<!-- Bootstrap js -->
-	<script src="js/bootstrap/bootstrap.min.js"></script>
-	<!-- All Plugins js -->
-	<script src="js/plugins/plugins.js"></script>
-	<!-- Active js -->
-	<script src="js/active.js"></script>
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
 
 </head>
 
@@ -169,6 +160,31 @@ List<RecipesVO> rlist = rdao.getRecipes();
 			</div>
 		</div>
 	</div>
+	<script>
+   
+    var randomlinks=new Array()
+    
+    // 랜덤으로 보여줄 링크를 설정
+    randomlinks[0]="https://www.10000recipe.com/recipe/6885805"
+    randomlinks[1]="https://www.10000recipe.com/recipe/6857278"
+    randomlinks[2]="https://www.10000recipe.com/recipe/6884886"
+    randomlinks[3]="https://www.10000recipe.com/recipe/3595564"
+    randomlinks[4]="https://www.10000recipe.com/recipe/6873390"
+    randomlinks[5]="https://www.10000recipe.com/recipe/6854292"
+    
+    function randomlink(){
+    window.location=randomlinks[Math.floor(Math.random()*randomlinks.length)]
+    }
+    </script>
+
+	<div align="center">
+		<form>
+			<p>
+				<input type="button" name="B1" value="레시피 랜덤 추천 받기"
+					onclick="randomlink()">
+			</p>
+		</form>
+	</div>
 	<!-- ##### Hero Area End ##### -->
 
 	<!-- ##### Catagory Area Start ##### -->
@@ -178,18 +194,28 @@ List<RecipesVO> rlist = rdao.getRecipes();
 		<div class="container">
 			<div class="row justify-content-center">
 				<!-- Single Post Catagory -->
-				<%
-				for (RecipesVO rvo : rlist) {
-				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
-						<img src="<%=rvo.getDes_img() %>" alt="">
+						<img src="img/bg-img/4.jpg" alt="">
 					</div>
-					<p> <%=rvo.getDes_name() %></p>
+					<p>맛남의광장에서 나온 백종원의 파프리카무침 2가지 방법!</p>
 				</div>
-				<%
-				}
-				%>
+
+				<!-- Single Post Catagory -->
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-post-catagory mb-30">
+						<img src="img/bg-img/5.jpg" alt="">
+					</div>
+					<p>로제크림치킨 l 귀차니즘이 폭팔하는 오늘같은 날! 편의점 재료로 떼우쟈!</p>
+				</div>
+
+				<!-- Single Post Catagory -->
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-post-catagory mb-30">
+						<img src="img/bg-img/6.jpg" alt="">
+					</div>
+					<p>로제크림치킨 l 귀차니즘이 폭팔하는 오늘같은 날! 편의점 재료로 떼우쟈!</p>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -260,33 +286,33 @@ List<RecipesVO> rlist = rdao.getRecipes();
 
 </body>
 
-	<!-- ##### Footer Area Start ##### -->
-	<footer class="footer-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-sm-5">
-					<!-- Copywrite Text -->
-					<p class="copywrite-text">
-						<a href="#"> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-							All rights reserved | This template is made with <i
-							class="fa fa-heart-o" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
-				<div class="col-12 col-sm-7">
-					<!-- Footer Nav -->
-					<div class="footer-nav">
-						<ul>
-							<li class="active"><a href="#">홈</a></li>
-							<li><a href="#">회원가입</a></li>
-							<li><a href="#">로그인</a></li>
-							<li><a href="#">자유게시판</a></li>
-						</ul>
-					</div>
+<!-- ##### Footer Area Start ##### -->
+<footer class="footer-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-sm-5">
+				<!-- Copywrite Text -->
+				<p class="copywrite-text">
+					<a href="#"> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+						All rights reserved | This template is made with <i
+						class="fa fa-heart-o" aria-hidden="true"></i> by <a
+						href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				</p>
+			</div>
+			<div class="col-12 col-sm-7">
+				<!-- Footer Nav -->
+				<div class="footer-nav">
+					<ul>
+						<li class="active"><a href="#">홈</a></li>
+						<li><a href="#">회원가입</a></li>
+						<li><a href="#">로그인</a></li>
+						<li><a href="#">자유게시판</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
-	</footer>
+	</div>
+</footer>
 
 </html>

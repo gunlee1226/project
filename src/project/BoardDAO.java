@@ -241,5 +241,42 @@ public class BoardDAO {
 
 		return vo;
 	}
+//	delete
+	public int delete(int mem_code) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int count = 0;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			conn = DriverManager.getConnection(url, "desr", "desr");
+
+			String query = "delete from Board where MEM_CODE=?";
+			pstmt = conn.prepareStatement(query);
+
+			pstmt.setInt(1, mem_code);
+
+			count = pstmt.executeUpdate();
+
+			System.out.println(count + "건 삭제");
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("error: 드라이버 로딩 실패 - " + e);
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				System.out.println("error:" + e);
+			}
+		}
+		return count;
+	}
 
 }
