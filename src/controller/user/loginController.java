@@ -41,8 +41,8 @@ public class loginController extends HttpServlet {
 
 		if (vo == null) {
 			// 아닐시 비번없다뜨는거?
-			System.out.println("체크");
-
+			System.out.println("비밀번호가 일치하지않습니다.");
+			
 			request.setAttribute("vo", vo);
 
 			request.getRequestDispatcher("/WEB-INF/view/user/loginForm.jsp").forward(request, response);
