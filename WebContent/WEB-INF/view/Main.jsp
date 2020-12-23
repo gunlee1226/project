@@ -187,6 +187,8 @@
 				<%
 					MainDAO dao = new MainDAO();
 					MainVO vo = dao.getDessert(3,4,5);
+					RecipesDAO rdao = new RecipesDAO();
+				
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
