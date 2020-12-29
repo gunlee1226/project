@@ -184,15 +184,18 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<!-- Single Post Catagory -->
+				<!--  큰 틀을 만들어주고 vo.getMain_name1(),2,3의값을 넣어준다. -->
 				<%
 					MainDAO dao = new MainDAO();
 					MainVO vo = dao.getDessert(3,4,5);
 					RecipesDAO rdao = new RecipesDAO();
+					RecipesVO rvo = new RecipesVO();
 				
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
 						<img src="<%=vo.getMain_img1() %>" alt="">
+						<a href = "Recipes.jsp"></a>
 					</div>
 					<p><%=vo.getMain_name1() %></p>
 				</div>
@@ -315,6 +318,7 @@
 				<%
 					MainDAO dao4 = new MainDAO();
 					MainVO vo4 = dao.getDessert(1,4,5);
+				
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
