@@ -30,7 +30,7 @@ public class MainDAO {
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query1 = "SELECT * FROM \n"
-					+ "(select des_name, des_img from dessert where kinds_code = ? \n"
+					+ "(select des_code, des_name, des_img from dessert where kinds_code = ? \n"
 					+ "order by dbms_random.value)\n"
 					+ "dessert where rownum = 1";
 			pstmt1 = conn.prepareStatement(query1);
@@ -38,7 +38,7 @@ public class MainDAO {
 			rs1 = pstmt1.executeQuery();
 			
 			String query2 = "SELECT * FROM \n"
-					+ "(select des_name, des_img from dessert where kinds_code = ? \n"
+					+ "(select des_code, des_name, des_img from dessert where kinds_code = ? \n"
 					+ "order by dbms_random.value)\n"
 					+ "dessert where rownum = 1";
 			pstmt2 = conn.prepareStatement(query2);
@@ -46,7 +46,7 @@ public class MainDAO {
 			rs2 = pstmt2.executeQuery();
 
 			String query3 = "SELECT * FROM \n"
-					+ "(select des_name, des_img from dessert where kinds_code = ? \n"
+					+ "(select des_code,des_name, des_img from dessert where kinds_code = ? \n"
 					+ "order by dbms_random.value)\n"
 					+ "dessert where rownum = 1";
 			pstmt3 = conn.prepareStatement(query3);
@@ -54,18 +54,21 @@ public class MainDAO {
 			rs3 = pstmt3.executeQuery();
 			
 			if (rs1.next() && rs2.next() && rs3.next()) {
-		         
+		        
+				int des_code = rs1.getInt("des_code");
 	            String des_name = rs1.getString("des_name");
 	            String des_img = rs1.getString("des_img");
-	         
+	            
+	            int des_code2 = rs2.getInt("des_code");
 	            String des_name2 = rs2.getString("des_name");
 	            String des_img2 = rs2.getString("des_img");
-
+	            
+	            int des_code3 = rs2.getInt("des_code");
 	            String des_name3 = rs3.getString("des_name");
 	            String des_img3 = rs3.getString("des_img");
 
 
-	         vo = new MainVO(des_name, des_img, des_name2, des_img2, des_name3, des_img3);
+	         vo = new MainVO(des_code ,des_name, des_img, des_code2, des_name2, des_img2, des_code3,des_name3, des_img3);
 	      
 	      }
 			

@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@import RecipesDAO %>
-<%@import RecipesVO %>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import= "project.RecipesDAO" %>
+<%@ page import= "project.RecipesVO" %>
+
+<%RecipesDAO rdao = new RecipesDAO();%>
+
+<%int code = Integer.parseInt(request.getParameter("code")); 
+	RecipesVO rvo = rdao.getRecipes(code);
+	request.setCharacterEncoding("UTF-8");
+%>
 
 
 <!DOCTYPE html>
@@ -33,7 +40,7 @@
 <script src="js/active.js"></script>
 
 
-<title>자 유 게 시 판</title>
+<title>레시피</title>
 </head>
 
 
@@ -53,30 +60,31 @@
 					<tr>
 						<th>디저트 이름</th>
 
-						<td>${rvo.des_name}</td>
+						<td><%=rvo.getDes_name() %></td>
 					</tr>
 					<tr>
 						<th>레시피</th>
-						<td>${rvo.des_rec}</td>
+						<td><%=rvo.getDes_rec() %></td>
 
 					</tr>
 					<tr>
 						<th>그림</th>
-						<td><img src = ${rvo.des_img}></td>
+						<td><img src = <%=rvo.getDes_img() %>></td>
 					</tr>
 					<tr>
 						<th>재료</th>
-						<td>${rvo.des_mete}</td>
+						<td><%=rvo.getDes_mete() %></td>
 
 					</tr>
 
 					<tr>
 						<th>간단정보</th>
-						<td>${rvo.des_summ}</td>
+						<td><%=rvo.getDes_summ() %></td>
 					</tr>
 					<tr>
 						<th>분류코드</th>
-						<td>${rvo.kinds_code}</td>
+						
+						<td><%=rvo.getKinds_code() %></td>
 					</tr>
 				</table>
 

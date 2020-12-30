@@ -194,9 +194,11 @@
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+					<a href = "Recipes.jsp?code=<%=vo.getMain_code1() %>">
 						<img src="<%=vo.getMain_img1() %>" alt="">
-						<a href = "WEB-INF/Recipes.jsp"></a>
+						</a>
 					</div>
+					
 					<p><%=vo.getMain_name1() %></p>
 				</div>
 				

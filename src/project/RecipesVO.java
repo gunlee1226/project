@@ -28,8 +28,9 @@ public class RecipesVO {
 		this.des_name = des_name;
 	}
 //  레시피내용
-	public RecipesVO(String des_name, String des_rec, String des_img, String des_mete, String des_summ, int kinds_code) {
+	public RecipesVO(int des_code, String des_name, String des_rec, String des_img, String des_mete, String des_summ, int kinds_code) {
 		super();
+		this.des_code = des_code;
 		this.des_name = des_name;
 		this.des_rec = des_rec;
 		this.des_img = des_img;

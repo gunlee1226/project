@@ -13,7 +13,7 @@ import java.util.List;
 
 public class RecipesDAO {
 	
-	public RecipesVO getRecipes(String name) {
+	public RecipesVO getRecipes(int code) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		RecipesVO rvo = null;
@@ -26,14 +26,15 @@ public class RecipesDAO {
 			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "SELECT des_name, des_rec, des_img, des_mete,des_summ, kinds_code"
-					+ " FROM DESSERT WHERE des_name = ?";
+			String query = "SELECT des_code, des_name, des_rec, des_img, des_mete,des_summ, kinds_code"
+					+ " FROM DESSERT WHERE des_code = ?";
 			pstmt = conn.prepareStatement(query);
 			
-			pstmt.setString(1, name);
+			pstmt.setInt(1, code);
 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
+			int des_code = rs.getInt("des_code");
 			String des_name = rs.getString("des_name");
 			String des_rec = rs.getString("des_rec");
 			String des_img = rs.getString("des_img");
@@ -41,7 +42,7 @@ public class RecipesDAO {
 			String des_summ = rs.getString("des_summ");
 			int kinds_code = rs.getInt("kinds_code");
 			
-			rvo = new RecipesVO(des_name, des_rec, des_img, des_mete, des_summ, kinds_code);
+			rvo = new RecipesVO(des_code,des_name, des_rec, des_img, des_mete, des_summ, kinds_code);
 			}
 			 
 		} catch (ClassNotFoundException e) {
