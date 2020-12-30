@@ -195,7 +195,7 @@
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
 						<img src="<%=vo.getMain_img1() %>" alt="">
-						<a href = "Recipes.jsp"></a>
+						<a href = "WEB-INF/Recipes.jsp"></a>
 					</div>
 					<p><%=vo.getMain_name1() %></p>
 				</div>

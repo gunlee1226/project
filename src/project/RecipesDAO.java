@@ -43,7 +43,7 @@ public class RecipesDAO {
 			
 			rvo = new RecipesVO(des_name, des_rec, des_img, des_mete, des_summ, kinds_code);
 			}
-			
+			 
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
 		} catch (SQLException e) {

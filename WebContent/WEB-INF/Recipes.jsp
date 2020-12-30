@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@import RecipesDAO %>
+<%@import RecipesVO %>
 
 
 
@@ -50,7 +51,7 @@
 			<div class="col-md-12">
 				<table class="table">
 					<tr>
-						<th>제목</th>
+						<th>디저트 이름</th>
 
 						<td>${rvo.des_name}</td>
 					</tr>
@@ -63,19 +64,18 @@
 						<th>그림</th>
 						<td><img src = ${rvo.des_img}></td>
 					</tr>
-
 					<tr>
-						<th>조회수</th>
+						<th>재료</th>
 						<td>${rvo.des_mete}</td>
 
 					</tr>
 
 					<tr>
-						<th>내용</th>
+						<th>간단정보</th>
 						<td>${rvo.des_summ}</td>
 					</tr>
 					<tr>
-						<th>내용</th>
+						<th>분류코드</th>
 						<td>${rvo.kinds_code}</td>
 					</tr>
 				</table>
