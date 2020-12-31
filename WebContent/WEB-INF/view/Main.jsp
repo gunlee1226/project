@@ -19,6 +19,7 @@
 <title>밥먹고 뭐 먹지?</title>
 <link rel="icon" href="img/core-img/favicon.ico">
 <link rel="stylesheet" href="css/style.css" type="text/css">
+
 	<!-- ##### All Javascript Script ##### -->
 	<!-- jQuery-2.2.4 js -->
 	<script src="js/jquery/jquery-2.2.4.min.js"></script>
@@ -204,6 +205,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo.getMain_code2() %>">
 						<img src="<%=vo.getMain_img2() %>" alt="">
 					</div>
 					<p><%=vo.getMain_name2() %></p>
@@ -211,6 +213,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo.getMain_code3() %>">
 						<img src="<%=vo.getMain_img3() %>" alt="">
 					</div>
 					<p><%=vo.getMain_name3() %></p>
@@ -229,6 +232,7 @@
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo1.getMain_code1() %>">
 						<img src="<%=vo1.getMain_img1() %>" alt="">
 					</div>
 					<p><%=vo1.getMain_name1() %></p>
@@ -236,6 +240,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo1.getMain_code2() %>">
 						<img src="<%=vo1.getMain_img2() %>" alt="">
 					</div>
 					<p><%=vo1.getMain_name2() %></p>
@@ -243,6 +248,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo1.getMain_code3() %>">
 						<img src="<%=vo1.getMain_img3() %>" alt="">
 					</div>
 					<p><%=vo1.getMain_name3() %></p>
@@ -261,6 +267,7 @@
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo2.getMain_code1() %>">
 						<img src="<%=vo2.getMain_img1() %>" alt="">
 					</div>
 					<p><%=vo2.getMain_name1() %></p>
@@ -268,6 +275,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo2.getMain_code2() %>">
 						<img src="<%=vo2.getMain_img2() %>" alt="">
 					</div>
 					<p><%=vo2.getMain_name2() %></p>
@@ -275,6 +283,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo2.getMain_code3() %>">
 						<img src="<%=vo2.getMain_img3() %>" alt="">
 					</div>
 					<p><%=vo2.getMain_name3() %></p>
@@ -292,6 +301,7 @@
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo3.getMain_code1() %>">
 						<img src="<%=vo3.getMain_img1() %>" alt="">
 					</div>
 					<p><%=vo3.getMain_name1() %></p>
@@ -299,6 +309,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo3.getMain_code2() %>">
 						<img src="<%=vo3.getMain_img2() %>" alt="">
 					</div>
 					<p><%=vo3.getMain_name2() %></p>
@@ -306,6 +317,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo3.getMain_code3() %>">
 						<img src="<%=vo3.getMain_img3() %>" alt="">
 					</div>
 					<p><%=vo3.getMain_name3() %></p>
@@ -324,6 +336,7 @@
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo4.getMain_code1() %>">
 						<img src="<%=vo4.getMain_img1() %>" alt="">
 					</div>
 					<p><%=vo4.getMain_name1() %></p>
@@ -331,6 +344,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo4.getMain_code1() %>">
 						<img src="<%=vo4.getMain_img2() %>" alt="">
 					</div>
 					<p><%=vo4.getMain_name2() %></p>
@@ -338,6 +352,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo4.getMain_code1() %>">
 						<img src="<%=vo4.getMain_img3() %>" alt="">
 					</div>
 					<p><%=vo4.getMain_name3() %></p>
@@ -355,6 +370,7 @@
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo5.getMain_code1() %>">
 						<img src="<%=vo5.getMain_img1() %>" alt="">
 					</div>
 					<p><%=vo5.getMain_name1() %></p>
@@ -362,6 +378,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo5.getMain_code1() %>">
 						<img src="<%=vo5.getMain_img2() %>" alt="">
 					</div>
 					<p><%=vo5.getMain_name2() %></p>
@@ -369,6 +386,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo5.getMain_code1() %>">
 						<img src="<%=vo5.getMain_img3() %>" alt="">
 					</div>
 					<p><%=vo5.getMain_name3() %></p>
@@ -387,6 +405,7 @@
 				%>
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo6.getMain_code1() %>">
 						<img src="<%=vo6.getMain_img1() %>" alt="">
 					</div>
 					<p><%=vo6.getMain_name1() %></p>
@@ -394,6 +413,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo6.getMain_code1() %>">
 						<img src="<%=vo6.getMain_img2() %>" alt="">
 					</div>
 					<p><%=vo6.getMain_name2() %></p>
@@ -401,6 +421,7 @@
 				
 				<div class="col-12 col-md-6 col-lg-4">
 					<div class="single-post-catagory mb-30">
+						<a href = "Recipes.jsp?code=<%=vo6.getMain_code1() %>">
 						<img src="<%=vo6.getMain_img3() %>" alt="">
 					</div>
 					<p><%=vo6.getMain_name3() %></p>

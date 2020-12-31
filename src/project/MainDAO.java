@@ -26,7 +26,7 @@ public class MainDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@121.172.34.96:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query1 = "SELECT * FROM \n"
@@ -63,7 +63,7 @@ public class MainDAO {
 	            String des_name2 = rs2.getString("des_name");
 	            String des_img2 = rs2.getString("des_img");
 	            
-	            int des_code3 = rs2.getInt("des_code");
+	            int des_code3 = rs3.getInt("des_code");
 	            String des_name3 = rs3.getString("des_name");
 	            String des_img3 = rs3.getString("des_img");
 

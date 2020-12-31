@@ -23,7 +23,7 @@ public class RecipesDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@121.172.34.96:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "SELECT des_code, des_name, des_rec, des_img, des_mete,des_summ, kinds_code"

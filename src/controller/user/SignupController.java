@@ -25,8 +25,9 @@ public class SignupController extends HttpServlet {
 
 	}
 
-	protected void dopost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	@Override
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
 		request.setCharacterEncoding("UTF-8");
 		String mem_name = request.getParameter("mem_name");
@@ -42,7 +43,7 @@ public class SignupController extends HttpServlet {
 
 			vo = new MemberVO(mem_name, mem_id, mem_pwd, mem_num);
 			dao.signup(vo);
-			response.sendRedirect("Main.jsp");
+			response.sendRedirect("/main");
 		} else {
 			request.setAttribute("vo1", vo);
 

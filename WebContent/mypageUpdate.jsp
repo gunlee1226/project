@@ -96,8 +96,7 @@ $(function() {
 			else {
 				$("#alert-success").hide();
 				$("#alert-danger").show();
-				$("#submit").attr("disabled", "disabled");
-				
+				$("#submit").attr("disabled", "disabled");	
 			}
 		}
 	})})

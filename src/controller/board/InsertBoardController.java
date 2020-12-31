@@ -2,7 +2,6 @@ package controller.board;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +30,7 @@ public class InsertBoardController extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 
+
 		String b_title = request.getParameter("inp_title");
 		String b_contents = request.getParameter("inp_contetns");
 		int mem_code = (int) session.getAttribute("Usercode");
@@ -41,7 +41,7 @@ public class InsertBoardController extends HttpServlet {
 		dao.insert(vo);
 
 
-		request.getRequestDispatcher("/WEB-INF/view/board/boardMain.jsp").forward(request, response);
+		response.sendRedirect("/boardMain");
 	}
 
 }

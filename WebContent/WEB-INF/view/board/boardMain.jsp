@@ -10,45 +10,49 @@
 <style>
 @import url("/css/recs.css");
 
+.pager-list, .pager>ul {
+	float: left;
+}
 
-.pager-list, .pager > ul {
-    float: left;
-}
 .pager li {
-    width: 15px;
-    height: 15px;
-    line-height: 15px;
-    text-align: center;
-    vertical-align: middle;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	text-align: center;
+	vertical-align: middle;
 }
+
 .-text-.bold {
-    font-weight: bold;
+	font-weight: bold;
 }
+
 .-text-.orange {
-    color: #ff6a00;
+	color: #ff6a00;
 }
+
 li {
-    display: block;
+	display: block;
 }
 
 .-list- {
-    display: flex;
-}
-.btn {
-    display: inline-block;
-    text-align: left;
-    vertical-align: middle;
-    text-indent: -999px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 0px;
-}
-.pager-item .btn-prev, .pager > div:first-child a, .pager > div:first-child span {
-    width: 15px;
-    height: 15px;
-     color:blue;
+	display: flex;
 }
 
+.btn {
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle;
+	text-indent: -999px;
+	overflow: hidden;
+	cursor: pointer;
+	border: 0px;
+}
+
+.pager-item .btn-prev, .pager>div:first-child a, .pager>div:first-child span
+	{
+	width: 15px;
+	height: 15px;
+}
 </style>
 
 <head>
@@ -56,7 +60,6 @@ li {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/img/core-img/favicon.ico">
 <link rel="stylesheet" href="/css/style.css?" type="text/css">
-
 
 
 <!-- ##### All Javascript Script ##### -->
@@ -74,9 +77,6 @@ li {
 
 <title>자 유 게 시 판</title>
 </head>
-
-
-
 <body style="font-family: myfont">
 	<!--  헤더부분 -->
 	<c:import url="/WEB-INF/header.jsp"></c:import>
@@ -88,8 +88,7 @@ li {
 				<legend class="hidden">공지사항 검색 필드</legend>
 				<label class="hidden">검색분류</label> <select name="f">
 					<option ${(param.f == "b_title")?"selected":"" } value="b_title">제목</option>
-					<option ${(param.f == "mem_name")?"selected":"" }
-						value="mem_name">작성자</option>
+					<option ${(param.f == "mem_name")?"selected":"" } value="mem_name">작성자</option>
 				</select> <label class="hidden">검색어</label> <input type="text" name="q"
 					value="${param.q}" /> <input class="btn btn-search" type="submit"
 					value="검색" />
@@ -111,36 +110,22 @@ li {
 							<th scope="col">댓글수</th>
 						</tr>
 					</thead>
-
 					<tbody>
-
-
 						<c:forEach var="n" items="${list}">
-
 							<tr>
-						
 								<td>${n.num}</td>
 								<td>${n.mem_name}</td>
 								<td><a href="getBoard?no=${n.b_no}">${n.b_title}</a></td>
 								<td>${n.b_date}</td>
 								<td>${n.b_view}</td>
 								<td>${n.cmtCount}</td>
-
 							</tr>
 						</c:forEach>
-
-
-
-
 					</tbody>
-
-				</table>
+			</table>
 			</div>
-
 		</div>
-
-
-
+<!------------- 	페이징------------------------------------------->
 		<c:set var="page" value="${(empty param.p)?1:param.p}"></c:set>
 		<!--널일경우에 오류강아닉위해 파람 -->
 		<c:set var="startNum" value="${page-(page-1)%5}"></c:set>
@@ -153,16 +138,11 @@ li {
 			<h3 class="hidden">현재 페이지</h3>
 			<div>
 				<span class="text-orange text-strong">${empty (param.p)?1:param.p }</span>
-				/ ${lastNum} pages
-
-
+				 ${lastNum} pages
 			</div>
 		</div>
 
 		<div class="margin-top align-center pager">
-
-
-
 			<div>
 				<!-- 이전페이지번호 -->
 				<c:if test="${startNum>1}">
@@ -174,10 +154,7 @@ li {
 				<c:if test="${startNum<=1}">
 					<span class="btn btn-prev" onclick="alert('이전 페이지가 없습니다.');">이전</span>
 				</c:if>
-
 			</div>
-
-
 
 			<ul class="-list- center">
 
@@ -205,8 +182,6 @@ li {
 
 		</div>
 
-
-
 		<div class="row">
 			<div class="col-md-12" style="text-align: right;">
 
@@ -229,16 +204,16 @@ li {
 </html>
 <script>
 function Insertform() {
-	var Userid = '<%=(String)session.getAttribute("Userid") %>';
-	 if(Userid == "null" ) {
-		 alert("로그인 후 이용가능합니다.");
-	location.href = '/login';
-	 }
-	 
-	 else {
-		
-		 location.href = '/insertBoard';
-	 }
-	}
+	var Userid = '<%=(String) session.getAttribute("Userid")%>
+	';
+		if (Userid == "null") {
+			alert("로그인 후 이용가능합니다.");
+			location.href = '/login';
+		}
 
+		else {
+
+			location.href = '/insertBoard';
+		}
+	}
 </script>

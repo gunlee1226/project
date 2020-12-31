@@ -1,4 +1,4 @@
-package controller;
+package controller.user;
 
 import java.io.IOException;
 
@@ -29,7 +29,6 @@ public class deleteController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
 		String actionName = request.getParameter("a");
 
 		if ("delete".equals(actionName)) {
@@ -37,10 +36,10 @@ public class deleteController extends HttpServlet {
 		String id = request.getParameter("input_mem_id");
 		String pwd = request.getParameter("input_mem_pwd");
 		String mem_code = request.getParameter("mem_code");
-		
+
 		MemberVO vo = new MemberVO(id, pwd);
 
-		
+
 		MemberDAO member = new MemberDAO();
 		BoardDAO board = new BoardDAO();
 
@@ -50,7 +49,7 @@ public class deleteController extends HttpServlet {
 
 		if (count_ != 0) {
 
-			int count = member.delete(vo);
+			int count = member.delete(vo, mem_code_);
 
 			if (count == 0) {
 
@@ -62,8 +61,11 @@ public class deleteController extends HttpServlet {
 				response.sendRedirect("/logout");
 
 		}
-
-
+		else {
+			int count = member.delete(vo, mem_code_);
+			response.sendRedirect("/logout");
+		}
+			
 	}
 
 	else

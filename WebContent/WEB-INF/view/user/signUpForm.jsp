@@ -1,4 +1,4 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -58,7 +58,7 @@
 			<input class="loginbutton" type="submit" value="회원가입 하기" onclick="return check()" id="signup" />
 		</div>
 	</form>
-	</form>
+	
 	<br>
 	<div style="margin: -5px">
 		<form action="loginform.jsp" method="post">
@@ -184,4 +184,3 @@ function check(){
 </script>
 
 </html>
-		
