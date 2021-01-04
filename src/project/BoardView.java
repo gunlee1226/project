@@ -1,5 +1,7 @@
 package project;
 
+import java.util.Date;
+
 public class BoardView extends BoardVO {
 
 	private int cmtCount;
@@ -21,7 +23,7 @@ public class BoardView extends BoardVO {
 	}
 
 
-	public BoardView(int num,int b_no, String b_title, String b_date, int b_view, int b_commview, String mem_name,
+	public BoardView(int num, int b_no, String b_title, Date b_date, int b_view, int b_commview, String mem_name,
 			int cmtCount) {
 		super(b_no, b_title, b_date, b_view, b_commview, mem_name);
 

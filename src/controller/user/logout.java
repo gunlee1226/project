@@ -1,6 +1,7 @@
 package controller.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +20,8 @@ public class logout extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		session.invalidate();
-		response.sendRedirect("/main");
+	
+		request.getRequestDispatcher("/WEB-INF/view/Main.jsp").forward(request, response);
 	}
 
 }

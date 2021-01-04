@@ -1,4 +1,4 @@
-package controller.board;
+package project;
 
 import java.io.IOException;
 
@@ -9,9 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
-import project.BoardView;
 
 @WebServlet("/boardMain")
 public class BoardMainController extends HttpServlet {
@@ -24,7 +21,7 @@ public class BoardMainController extends HttpServlet {
 
 		// list?=title& q= a
 		String field_ = request.getParameter("f"); // 제목
-		String query_ = request.getParameter("q"); // 작송자?
+		String query_ = request.getParameter("q"); // 작성자?
 		String page_ = request.getParameter("p");// 페이지
 
 		// 값을 전달하기전에 기본값처리

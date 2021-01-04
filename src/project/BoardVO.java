@@ -1,13 +1,12 @@
 package project;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
 public class BoardVO {
 
    private int b_no;
    private String b_title;
-   private String b_date;
+	private Date b_date;
    private String b_contents;
    private int b_view;
    private int b_commview;
@@ -28,7 +27,7 @@ public class BoardVO {
 
    
 /* boardMain에서 보여지는거*/
-   public BoardVO(int b_no, String b_title, String b_date, int b_view, int b_commview, String mem_name) {
+public BoardVO(int b_no, String b_title, Date b_date, int b_view, int b_commview, String mem_name) {
       super();
       this.b_no = b_no;
       this.b_title = b_title;
@@ -39,7 +38,7 @@ public class BoardVO {
     
    }
    
-   public BoardVO(String b_title, String b_contents , int b_view, String b_date,int mem_code, String mem_name) {
+	public BoardVO(String b_title, String b_contents, int b_view, Date b_date, int mem_code, String mem_name) {
 	      super();
 	      this.b_title = b_title;
 	      this.b_date = b_date;
@@ -93,13 +92,13 @@ public int getB_no() {
 
 
 
-   public String getB_date() {
+	public Date getB_date() {
       return b_date;
    }
 
 
 
-   public void setB_date(String b_date) {
+	public void setB_date(Date b_date) {
       this.b_date = b_date;
    }
 

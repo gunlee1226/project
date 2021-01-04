@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BoardService {
@@ -30,7 +31,7 @@ public class BoardService {
 		List<BoardView> list = new ArrayList<>();
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
 		String user = "desr";
 		String pass = "desr";
 
@@ -40,7 +41,7 @@ public class BoardService {
 		// 1, 11 ,21 ,31 > an =1 +(page-1)*10 등차수열...
 		// 10 20 30 40 > page*10
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pass);
 			pstmt = conn.prepareStatement(sql);
 
@@ -57,7 +58,7 @@ public class BoardService {
 				int num = rs.getInt("NUM");
 				int b_no = rs.getInt("b_no");
 				String b_title = rs.getString("B_TITLE");
-				String b_date = rs.getString("b_date");
+				Date b_date = rs.getDate("b_date");
 				int b_view = rs.getInt("b_view");
 				int b_commview = rs.getInt("b_commview");
 				String mem_name = rs.getString("mem_name");
@@ -108,7 +109,7 @@ public class BoardService {
 		ResultSet rs = null;
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
 		String user = "desr";
 		String pass = "desr";
 
@@ -118,7 +119,7 @@ public class BoardService {
 		// 1, 11 ,21 ,31 > an =1 +(page-1)*10 등차수열...
 		// 10 20 30 40 > page*10
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pass);
 			pstmt = conn.prepareStatement(sql);
 
@@ -163,13 +164,13 @@ public class BoardService {
 		ResultSet rs = null;
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
 		String user = "simt";
 		String pass = "simt";
 
 		String sql = "SELECT  * from BOARD WHERE B_no = ?";
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pass);
 			pstmt = conn.prepareStatement(sql);
 
@@ -184,7 +185,7 @@ public class BoardService {
 
 				int b_no = rs.getInt("b_no");
 				String b_title = rs.getString("B_TITLE");
-				String b_date = rs.getString("b_date");
+				Date b_date = rs.getDate("b_date");
 				int b_view = rs.getInt("b_view");
 				int b_commview = rs.getInt("b_commview");
 				String mem_code = rs.getString("mem_code");
@@ -222,14 +223,14 @@ public class BoardService {
 		ResultSet rs = null;
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
 		String user = "simt";
 		String pass = "simt";
 
 		String sql = "SELECT  B_no from BOARD WHERE b_DATE > (SELECT b_DATE fROM BOARD WHERE B_no = ?	 \r\n"
 				+ "AND ROwNUM =1) ";
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pass);
 			pstmt = conn.prepareStatement(sql);
 
@@ -243,7 +244,7 @@ public class BoardService {
 
 				int b_no = rs.getInt("b_no");
 				String b_title = rs.getString("B_TITLE");
-				String b_date = rs.getString("b_date");
+				Date b_date = rs.getDate("b_date");
 				int b_view = rs.getInt("b_view");
 				int b_commview = rs.getInt("b_commview");
 				String mem_code = rs.getString("mem_code");
@@ -282,7 +283,7 @@ public class BoardService {
 		ResultSet rs = null;
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
+		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
 		String user = "simt";
 		String pass = "simt";
 
@@ -290,7 +291,7 @@ public class BoardService {
 				+ " WHERE b_DATE < (SELECT b_DATE fROM BOARD WHERE B_no= ?) AND ROWNUM =1 ";
 
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pass);
 			pstmt = conn.prepareStatement(sql);
 
@@ -304,7 +305,7 @@ public class BoardService {
 
 				int b_no = rs.getInt("b_no");
 				String b_title = rs.getString("B_TITLE");
-				String b_date = rs.getString("b_date");
+				Date b_date = rs.getDate("b_date");
 				int b_view = rs.getInt("b_view");
 				int b_commview = rs.getInt("b_commview");
 				String mem_code = rs.getString("mem_code");

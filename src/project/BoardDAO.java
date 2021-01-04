@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BoardDAO {
@@ -19,7 +20,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@121.172.34.96:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "INSERT INTO board VALUES (seq_b_no.nextval,?, sysdate, 1, 1,?, '댓글', ?)";
@@ -61,7 +62,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@121.172.34.96:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "delete from Board where b_no =? and MEM_CODE=?";
@@ -71,7 +72,7 @@ public class BoardDAO {
 
 			count = pstmt.executeUpdate();
 
-			System.out.println(count + "건 삭제");
+			System.out.println(count + "건 게시글 삭제");
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("error: 드라이버 로딩 실패 - " + e);
@@ -90,6 +91,44 @@ public class BoardDAO {
 
 	}
 
+	// delete22
+	public int delete(int mem_code) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int count = 0;
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			conn = DriverManager.getConnection(url, "desr", "desr");
+
+			String query = "delete from Board where MEM_CODE=?";
+			pstmt = conn.prepareStatement(query);
+
+			pstmt.setInt(1, mem_code);
+
+			count = pstmt.executeUpdate();
+
+			System.out.println(count + "건 게시글 삭제");
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("error: 드라이버 로딩 실패 - " + e);
+		} catch (SQLException e) {
+			System.out.println("error:" + e);
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (SQLException e) {
+				System.out.println("error:" + e);
+			}
+		}
+		return count;
+	}
+
 	// update
 
 	public void update(int n, String update_title, String update_content) {
@@ -100,7 +139,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@121.172.34.96:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "update board set b_title =?, b_contents =? where b_no = ?";
@@ -145,7 +184,7 @@ public class BoardDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			// 2. Connection 얻어오기
-			String url = "jdbc:oracle:thin:@121.172.34.96:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			// 3. SQL문 준비 / 바인딩 / 실행
@@ -158,7 +197,7 @@ public class BoardDAO {
 
 				int b_no = rs.getInt(1);
 				String b_title = rs.getString(2);
-				String b_date = rs.getString(3);
+				Date b_date = rs.getDate(3);
 				int b_view = rs.getInt(4);
 				int b_commview = rs.getInt(5);
 				String mem_name = rs.getString(6);
@@ -202,7 +241,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@localhost:1521:xe";
+			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "\r\n"
@@ -217,7 +256,7 @@ public class BoardDAO {
 				String b_title = rs.getString("b_title");
 				String b_contents = rs.getString("b_contents");
 				int b_view = rs.getInt("b_view");
-				String b_date = rs.getString("b_date");
+				Date b_date = rs.getDate("b_date");
 				int mem_code = rs.getInt("mem_code");
 				String mem_name = rs.getString("mem_name");
 
@@ -240,43 +279,6 @@ public class BoardDAO {
 		}
 
 		return vo;
-	}
-//	delete
-	public int delete(int mem_code) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		int count = 0;
-
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-
-			String url = "jdbc:oracle:thin:@121.172.34.96:1521:xe";
-			conn = DriverManager.getConnection(url, "desr", "desr");
-
-			String query = "delete from Board where MEM_CODE=?";
-			pstmt = conn.prepareStatement(query);
-
-			pstmt.setInt(1, mem_code);
-
-			count = pstmt.executeUpdate();
-
-			System.out.println(count + "건 삭제");
-
-		} catch (ClassNotFoundException e) {
-			System.out.println("error: 드라이버 로딩 실패 - " + e);
-		} catch (SQLException e) {
-			System.out.println("error:" + e);
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				System.out.println("error:" + e);
-			}
-		}
-		return count;
 	}
 
 }

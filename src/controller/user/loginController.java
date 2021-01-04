@@ -1,6 +1,7 @@
 package controller.user;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,7 +22,8 @@ public class loginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		
+		
 		request.getRequestDispatcher("/WEB-INF/view/user/loginForm.jsp").forward(request, response);
 
 	}
@@ -31,6 +33,7 @@ public class loginController extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 
+	
 		HttpSession session = request.getSession();
 		MemberDAO dao = new MemberDAO();
 
@@ -45,7 +48,11 @@ public class loginController extends HttpServlet {
 
 			request.setAttribute("vo", vo);
 
-			request.getRequestDispatcher("/WEB-INF/view/user/loginForm.jsp").forward(request, response);
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>alert(\"정보가 일치하지 않습니다.\"); history.back()</script>" );
+			
+			//request.getRequestDispatcher("/WEB-INF/view/user/loginForm.jsp").forward(request, response);
 
 		}
 		/* 세션에 저장 */

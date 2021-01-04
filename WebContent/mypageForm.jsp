@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -26,17 +25,20 @@
 </head>
 <body style="text-align: center;">
 	<header>
-			<c:import url="WEB-INF/header.jsp"></c:import>
+			<c:import url="/WEB-INF/header.jsp"></c:import>
 	</header>
 	<c:choose>
 	<c:when test="${Userid == null }">
-	<%response.sendRedirect("loginform.jsp"); %>
+	
+	<script>
+	location.href = "login";
+	</script>
 	
 	</c:when>
 	<c:otherwise>
 	
 	
-	<form action="mypageCheck.jsp" name= "mypageForm" method="post" id="mypageForm">
+	<form action="mypage" name= "mypageForm" method="post" id="mypageForm">
 		<h5>회원정보확인</h5>
 		<div>
 		<table width="100%">
@@ -65,7 +67,7 @@
 
 </c:otherwise>
 </c:choose>
-	</div>
+	
 </body>
 
 </html>

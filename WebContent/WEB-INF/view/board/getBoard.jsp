@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
-
-
-
 <!DOCTYPE html>
 <html lang="ko">
 <style>
@@ -16,8 +12,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="img/core-img/favicon.ico">
 <link rel="stylesheet" href="css/style.css?" type="text/css">
-
-
 
 <!-- ##### All Javascript Script ##### -->
 <!-- jQuery-2.2.4 js -->
@@ -31,83 +25,51 @@
 <!-- Active js -->
 <script src="js/active.js"></script>
 
-
-<title>자 유 게 시 판</title>
+<title>자유게시판</title>
 </head>
-
-
 
 <body style="font-family: myfont">
 	<!--  헤더부분 -->
 	<c:import url="/WEB-INF/header.jsp"></c:import>
-
-	<!-- 메인 내용 -->
-	<div class="container p-3 my-3">
-
-
-		<!--메뉴 고르기 & 최근 레시피 기능  -->
+<div class="container">
+		<!--게시판글  -->
 		<div class="row">
 			<div class="col-md-12">
-				<table class="table">
-					<tr>
-						<th>제목</th>
-
-						<td>${vo.b_title }</td>
-					</tr>
-					<tr>
-						<th>날짜</th>
-						<td>${vo.b_date}</td>
-
-					</tr>
-					<tr>
-						<th>작성자</th>
-						<td>${vo.mem_name}</td>
-					</tr>
-
-					<tr>
-						<th>조회수</th>
-						<td></td>
-
-					</tr>
-
-					<tr>
-						<th>내용</th>
-						<td>${vo.b_contents}</td>
-					</tr>
-				</table>
-
-
+				<h2 class="text-center">${vo.b_title }</h2>
+				
+						<h5>${vo.b_date}</h5>
+						<h5>${vo.mem_name}</h5>
 			</div>
-
+				<div class="col-md-12">
+				<p class="">${vo.b_contents}</p>
+				
 			</div>
-
-			
-			<div class="row">
-				<div class="col-md-12" style="text-align: right;">
-
-
-					<c:set var="mem_code" value="${vo.mem_code}" />
-					<c:choose>
-						<c:when test="${Usercode == null}">
-							<input type="button" value="로그인"
-								onclick="location.href='/login'" style="width: 5%">
-						</c:when>
-
-						<c:when test="${Usercode == vo.mem_code}">
-							
-							<a href="boardUpdate?no=${no}"> <input type="button"
-								value="수정하기" style="width: 8%">
-							</a>
-							<a href="boardDelete?no=${no}"> <input type="button"
-								value="삭제하" style="width: 8%">
-								
-							
-							</a>
-						</c:when>
-					</c:choose>
 		</div>
+		<div class="row m-4">
+			<div class="col-md-12" style="text-align: right;">
 
-	</div>
+				<!-- 수정삭제 -->
+				<c:set var="mem_code" value="${vo.mem_code}" />
+				<c:choose>
+					<c:when test="${Usercode == null}">
+						<input class="btn-dark" type="button" value="로그인" onclick="location.href='/login'"
+							style="width: 5%">
+					</c:when>
+
+					<c:when test="${Usercode == vo.mem_code}">
+
+						<a href="boardUpdate?no=${no}"> <input class="btn-dark" type="button"
+							value="수정하기" style="width: 8%">
+							</a>
+						<a href="boardDelete?no=${no}"> <input class="btn-dark" type="button"
+							value="삭제하기" style="width: 8%">
+						</a>
+					</c:when>
+				</c:choose>
+			</div>
+
+		</div>
+</div>
 		<div class="footer text-center" style="margin-top: auto">
 			<p>문의사항 : gunlee1226@gmail.com</p>
 			<P>주소 : 서울 특별시 구로구 디지털로 29 대륭포스트타워 3차</P>

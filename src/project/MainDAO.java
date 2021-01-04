@@ -26,7 +26,7 @@ public class MainDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@121.172.34.96:1521:xe";
+			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query1 = "SELECT * FROM \n"
