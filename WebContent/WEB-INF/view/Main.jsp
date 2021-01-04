@@ -173,7 +173,7 @@
    <div align="center">
       <form>
          <p>
-            <input type="button" name="B1" value="레시피 랜덤 추천 받기"
+            <input type="button" class = "bueno-btn"name="B1" value="레시피 랜덤 추천 받기"
                onclick="randomlink()">
          </p>
       </form>
@@ -185,7 +185,6 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<!-- Single Post Catagory -->
-				<!--  큰 틀을 만들어주고 vo.getMain_name1(),2,3의값을 넣어준다. -->
 				<%
 					MainDAO dao = new MainDAO();
 					MainVO vo = dao.getDessert(3,4,5);
