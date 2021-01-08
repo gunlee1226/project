@@ -62,29 +62,31 @@
 
 						<td><%=rvo.getDes_name() %></td>
 					</tr>
+					
+						<tr>
+						<th>간단정보</th>
+						<td><%=rvo.getDes_summ() %></td>
+					</tr>
+						<tr>
+						<th>재료</th>
+						<td><%=rvo.getDes_mete() %></td>
+
+					</tr>
+					<tr>
+						<th>음식 사진</th>
+						<td><img src = <%=rvo.getDes_img() %>></td>
+					</tr>
+				
 					<tr>
 						<th>레시피</th>
 						<td><%=rvo.getDes_rec() %></td>
 
 					</tr>
+				
 					<tr>
-						<th>그림</th>
-						<td><img src = <%=rvo.getDes_img() %>></td>
-					</tr>
-					<tr>
-						<th>재료</th>
-						<td><%=rvo.getDes_mete() %></td>
-
-					</tr>
-
-					<tr>
-						<th>간단정보</th>
-						<td><%=rvo.getDes_summ() %></td>
-					</tr>
-					<tr>
-						<th>분류코드</th>
+						<th>분류</th>
 						
-						<td><%=rvo.getKinds_code() %></td>
+						<td><%=rvo.getKinds_name() %></td>
 					</tr>
 				</table>
 

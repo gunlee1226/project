@@ -436,7 +436,52 @@ h3 {
     font-weight: 500;
     background-color: #000000;
     color: #ffffff; }
+    
+ .submit-btn {
+  background-color: #fb7904;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: auto;
+  height: 35px;
+  color: #ffffff;
+  border-radius: 1px;
+  padding: 0 30px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 200;
+  text-transform: capitalize; }
+  .submit-btn:hover, .submit-btn:focus {
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #aa510f;
+    color: #ffffff; }
 
+
+ .search-btn {
+  background-color: pink;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: auto;
+  height: 35px;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0 30px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 500;
+  max-width: 90px;
+  text-transform: capitalize; }
+  .search-btn:hover, .search-btn:focus {
+    font-size: 15px;
+    font-weight: 500;
+    background-color: #fdc1f7;
+    color: #ffffff; }
 /* :: 4.0 Header Area CSS */
 .header-area {
   position: relative;

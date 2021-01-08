@@ -26,23 +26,24 @@ public class RecipesDAO {
 			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "SELECT des_code, des_name, des_rec, des_img, des_mete,des_summ, kinds_code"
-					+ " FROM DESSERT WHERE des_code = ?";
+			String query = "SELECT d.des_code, d.des_name, d.des_rec, d.des_img, d.des_mete, d.des_summ, kn.KINDS_NAME  \r\n"
+					+ "FROM DESSERT d INNER JOIN KINDS kn ON kn.KINDS_CODE = d.KINDS_CODE \r\n"
+					+ "WHERE des_code = ?";
 			pstmt = conn.prepareStatement(query);
 			
 			pstmt.setInt(1, code);
 
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-			int des_code = rs.getInt("des_code");
-			String des_name = rs.getString("des_name");
-			String des_rec = rs.getString("des_rec");
-			String des_img = rs.getString("des_img");
-			String des_mete = rs.getString("des_mete");
-			String des_summ = rs.getString("des_summ");
-			int kinds_code = rs.getInt("kinds_code");
+			int des_code = rs.getInt(1);
+			String des_name = rs.getString(2);
+			String des_rec = rs.getString(3);
+			String des_img = rs.getString(4);
+			String des_mete = rs.getString(5);
+			String des_summ = rs.getString(6);
+			String kinds_name = rs.getString(7);
 			
-			rvo = new RecipesVO(des_code,des_name, des_rec, des_img, des_mete, des_summ, kinds_code);
+			rvo = new RecipesVO(des_code,des_name, des_rec, des_img, des_mete, des_summ, kinds_name);
 			}
 			 
 		} catch (ClassNotFoundException e) {

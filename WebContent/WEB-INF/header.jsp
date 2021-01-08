@@ -14,15 +14,6 @@
 					<div class="col-12 col-sm-6 col-lg-5 col-xl-4"
 						style="margin: auto;" autofocus>
 						<!-- Top Search Area -->
-						<div class="top-search-area">
-							<form action="#" method="post">
-								<input type="search" style="width:300px"
-									placeholder="레시피 검색하기">
-								<button type="submit" class="btn">
-									<i class="fa fa-search"></i>
-								</button>
-							</form>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -40,18 +31,12 @@
 					<!-- Menu -->
 					<nav class="classy-navbar justify-content-between" id="buenoNav">
 
-						<!-- Toggler -->
-						<div id="toggler">
-							<img src="img/core-img/toggler.png" alt="">
-						</div>
 
 						<!-- Navbar Toggler -->
 						<div class="classy-navbar-toggler">
-							<span class="navbarToggler"><span></span><span></span><span></span></span>
+							<span class="navbarToggler"><span></span>
+							
 						</div>
-
-						<!-- Menu -->
-						<div class="classy-menu">
 
 							<!-- Close Button -->
 							<div class="classycloseIcon">

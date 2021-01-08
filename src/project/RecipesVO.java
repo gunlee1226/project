@@ -12,6 +12,7 @@ public class RecipesVO {
 	private String des_link2;
 	private String des_link3;
 	private int kinds_code;
+	private String kinds_name;
 
 	public RecipesVO() {
 
@@ -28,7 +29,7 @@ public class RecipesVO {
 		this.des_name = des_name;
 	}
 //  레시피내용
-	public RecipesVO(int des_code, String des_name, String des_rec, String des_img, String des_mete, String des_summ, int kinds_code) {
+	public RecipesVO(int des_code, String des_name, String des_rec, String des_img, String des_mete, String des_summ, String kinds_name) {
 		super();
 		this.des_code = des_code;
 		this.des_name = des_name;
@@ -36,7 +37,7 @@ public class RecipesVO {
 		this.des_img = des_img;
 		this.des_mete = des_mete;
 		this.des_summ = des_summ;
-		this.kinds_code = kinds_code;
+		this.kinds_name = kinds_name;
 	}
 	// getter & setter
 
@@ -52,6 +53,13 @@ public class RecipesVO {
 		return des_code;
 	}
 
+	public void setKinds_name(String kinds_name) {
+		this.kinds_name = kinds_name;
+	}
+
+	public String getKinds_name() {
+		return kinds_name;
+	}
 	public void setDes_code(int des_code) {
 		this.des_code = des_code;
 	}
