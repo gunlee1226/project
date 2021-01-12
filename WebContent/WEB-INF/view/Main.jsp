@@ -429,38 +429,13 @@
 		</div>
 	</div>
 	<!-- ##### Catagory Area End ##### -->
-
+<!-- footer -->
+	<div class="footer text-center" style="margin-top: auto">
+		<p>문의사항 : gunlee1226@gmail.com</p>
+		<P>주소 : 서울 특별시 구로구 디지털로 29 대륭포스트타워 3차</P>
+		<p>11층 1109호 한국직업전문학교</p>
+	</div>
 </body>
-
-	<!-- ##### Footer Area Start ##### -->
-	<footer class="footer-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 col-sm-5">
-					<!-- Copywrite Text -->
-					<p class="copywrite-text">
-						<a href="#"> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-							All rights reserved | This template is made with <i
-							class="fa fa-heart-o" aria-hidden="true"></i> by <a
-							href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-					</p>
-				</div>
-				<div class="col-12 col-sm-7">
-					<!-- Footer Nav -->
-					<div class="footer-nav">
-						<ul>
-							<li class="active"><a href="#">홈</a></li>
-							<li><a href="#">회원가입</a></li>
-							<li><a href="#">로그인</a></li>
-							<li><a href="#">자유게시판</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
 </html>
 
 <script>

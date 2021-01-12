@@ -17,7 +17,7 @@ public class MemberDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "insert into d_member (Mem_code,Mem_name,Mem_id,Mem_pwd,Mem_num) values (seq_mem_code.nextval, ?, ?, ?, ?)";
@@ -61,7 +61,7 @@ public class MemberDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "select mme_id from d_member where mem_id = ?";
@@ -104,7 +104,7 @@ public class MemberDAO {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "select mem_code,mem_name,mem_num , mem_rec from d_member where mem_id = ? and mem_pwd =?";
@@ -159,7 +159,7 @@ public class MemberDAO {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "delete from D_MEMBER where MEM_ID= ? and MEM_PWD= ? and mem_code = ?";
@@ -199,7 +199,7 @@ public class MemberDAO {
 
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "update d_member set mem_pwd = ?, mem_num = ? where mem_id = ?";

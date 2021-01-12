@@ -31,7 +31,7 @@ public class BoardService {
 		List<BoardView> list = new ArrayList<>();
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "desr";
 		String pass = "desr";
 
@@ -109,7 +109,7 @@ public class BoardService {
 		ResultSet rs = null;
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "desr";
 		String pass = "desr";
 
@@ -164,7 +164,7 @@ public class BoardService {
 		ResultSet rs = null;
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "simt";
 		String pass = "simt";
 
@@ -223,7 +223,7 @@ public class BoardService {
 		ResultSet rs = null;
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "simt";
 		String pass = "simt";
 
@@ -283,7 +283,7 @@ public class BoardService {
 		ResultSet rs = null;
 
 		String driver = "oracle.jdbc.driver.OracleDriver";
-		String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "simt";
 		String pass = "simt";
 

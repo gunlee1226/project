@@ -20,10 +20,10 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
-			String query = "INSERT INTO board VALUES (seq_b_no.nextval,?, sysdate, 1, 1,?, '댓글', ?)";
+			String query = "INSERT INTO board VALUES (seq_b_no.nextval,?, sysdate, 1,?,0,?)";
 			pstmt = conn.prepareStatement(query);
 
 			pstmt.setString(1, vo.getB_title());
@@ -62,7 +62,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "delete from Board where b_no =? and MEM_CODE=?";
@@ -100,7 +100,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "delete from Board where MEM_CODE=?";
@@ -139,7 +139,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "update board set b_title =?, b_contents =? where b_no = ?";
@@ -184,7 +184,7 @@ public class BoardDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
 			// 2. Connection 얻어오기
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			// 3. SQL문 준비 / 바인딩 / 실행
@@ -241,7 +241,7 @@ public class BoardDAO {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String url = "jdbc:oracle:thin:@59.17.76.32:1521:xe";
+			String url = "jdbc:oracle:thin:@localhost:1521:xe";
 			conn = DriverManager.getConnection(url, "desr", "desr");
 
 			String query = "\r\n"

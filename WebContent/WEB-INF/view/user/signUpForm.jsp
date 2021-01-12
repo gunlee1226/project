@@ -74,7 +74,13 @@
 			</script>
 		
 		</c:if>
+	<!-- footer -->
 	
+	<div class="footer text-center" style="margin-top: auto">
+		<p>문의사항 : gunlee1226@gmail.com</p>
+		<P>주소 : 서울 특별시 구로구 디지털로 29 대륭포스트타워 3차</P>
+		<p>11층 1109호 한국직업전문학교</p>
+	</div>
 </body>
 <script>
 function confirmId(){
