@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page import= "project.RecipesDAO" %>
-<%@ page import= "project.RecipesVO" %>
+<%@ page import="project.RecipesDAO"%>
+<%@ page import="project.RecipesVO"%>
 
 <%RecipesDAO rdao = new RecipesDAO();%>
 
@@ -62,30 +62,30 @@
 
 						<td><%=rvo.getDes_name() %></td>
 					</tr>
-					
-						<tr>
+
+					<tr>
 						<th>간단정보</th>
 						<td><%=rvo.getDes_summ() %></td>
 					</tr>
-						<tr>
+					<tr>
 						<th>재료</th>
 						<td><%=rvo.getDes_mete() %></td>
 
 					</tr>
 					<tr>
 						<th>음식 사진</th>
-						<td><img src = <%=rvo.getDes_img() %>></td>
+						<td><img src=<%=rvo.getDes_img() %>></td>
 					</tr>
-				
+
 					<tr>
 						<th>레시피</th>
 						<td><%=rvo.getDes_rec() %></td>
 
 					</tr>
-				
+
 					<tr>
 						<th>분류</th>
-						
+
 						<td><%=rvo.getKinds_name() %></td>
 					</tr>
 				</table>
@@ -93,14 +93,13 @@
 
 			</div>
 
-			</div>
-			</div>
-
-		<div class="footer text-center" style="margin-top: auto">
-			<p>문의사항 : gunlee1226@gmail.com</p>
-			<P>주소 : 서울 특별시 구로구 디지털로 29 대륭포스트타워 3차</P>
-			<p>11층 1109호 한국직업전문학교</p>
 		</div>
+	</div>
+	<div class="footer text-center" style="margin-top: auto">
+		<p>문의사항 : gunlee1226@gmail.com</p>
+		<P>주소 : 서울 특별시 구로구 디지털로 29 대륭포스트타워 3차</P>
+		<p>11층 1109호 한국직업전문학교</p>
+	</div>
 </body>
 
 </html>
